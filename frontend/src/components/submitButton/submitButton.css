@@ -1,0 +1,11 @@
+
+.form__btn{
+    padding:5px;
+    min-width:50px;
+    max-width:100px;
+    background:none;
+    border:2px solid #0e76ed;
+    color:#0e76ed;
+    cursor:pointer;
+    font-weight:bold;
+    }

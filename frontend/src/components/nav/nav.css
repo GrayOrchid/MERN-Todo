@@ -1,0 +1,41 @@
+.nav__room{
+    display:flex;
+    justify-content: center;
+}
+.nav__room-btns{
+    display:flex;
+    align-items:center;
+    gap:0 40px;
+}
+.nav__room-items{
+    display:flex;
+    align-items:center;
+    flex-flow:column;
+}
+.nav__room-name{
+    word-break: break-word;
+    text-align:center;
+}
+.nav__auth{
+    padding:.5rem 
+}
+.nav__auth-btns{
+    display:flex;
+}
+.nav__room-leave{
+    text-align:center;
+    padding:1px;
+    border:1px solid black;
+    cursor:pointer;
+    border-radius:10px;
+    transition:.2s;
+    margin-top:10px;
+    width:100px;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+}
+.nav__room-leave:hover{
+    background:black;
+    color:white;
+}

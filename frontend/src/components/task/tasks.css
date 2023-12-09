@@ -1,0 +1,90 @@
+.todos__list {
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  border-radius: 5px;
+  padding: 10px;
+  background:#E5D1F0;
+}
+.todos__task {
+  background-color: #fff;
+  border-radius: 10px;
+  margin-bottom: 10px;
+  padding: 10px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  background:transparent;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+  transition:.2s;
+  max-height:500px;
+}
+.todos__task:hover{
+  box-shadow: 0 4px 1px rgba(0, 0, 0, 0.4);
+}
+.todos__task-title {
+  font-size: 20px;
+  margin: 0;
+  color:#78009e;
+  word-wrap:break-word;
+  width:100%;
+}
+.todos__task-btns-inner{
+  display:flex;
+  height:100%;
+}
+.todos__task-btn{
+  padding:10px;
+  transition:.2s 
+}
+.__red{
+  color:#BD5045;
+}
+.__green{
+  color:green;
+}
+.todos__task-btn{
+  padding:5px;
+}
+.todos__task-delete-btns{
+  border:1px black solid;
+  border-radius:10px;
+  display:flex;
+  padding:15px;
+  justify-content:space-around;
+}
+.__dragactive{
+  transform:scale(1.01) 
+}
+.todos__task-tags{
+  display:flex;
+  flex-wrap:wrap;
+  margin-top:5px;
+  gap:5px 5px;
+}
+.todos__task-tag{
+  font-size:16px;
+  color:blue;
+  transition:.2s 
+}
+.todos__task-tag:hover{
+  color:red;
+}
+.todos__task-text{
+  max-height:500px;
+  width:90%;
+  word-wrap:break-word;
+}
+@media (max-width: 900px){
+  .todos__list{
+      padding: 10px;
+      width:100%;
+ }
+  .todos__task {
+      align-items:start;
+      flex-flow:column;
+      width:95%;
+     ;
+ }
+  .todos__task-tags{
+      width:95%;
+ }
+}

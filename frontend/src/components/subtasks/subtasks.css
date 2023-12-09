@@ -1,0 +1,30 @@
+.subtasks {
+    margin-left: 25px;
+    display: flex;
+    flex-flow: column;
+}
+
+.subtasks__subtask {
+    display:flex;
+    gap: 0 10px;
+    align-items: center;
+    margin-bottom: 20px;
+    border-radius: 8px;
+    padding: 12px; 
+    box-shadow: 3px 3px 8px rgba(0, 0, 0, 0.1), -3px -3px 8px rgba(255, 255, 255, 0.8); 
+}
+
+.subtasks__subtask-text {
+    font-size: 25px;
+    font-weight: bold;
+}
+
+.subtasks__subtask-btns {
+    display:flex;
+    font-size:20px;
+    gap:0 5px;
+}
+.subtasks__subtask-btn{
+    cursor:pointer;
+}
+
