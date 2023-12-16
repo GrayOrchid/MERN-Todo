@@ -1,6 +1,6 @@
 import { AnimatePresence } from "framer-motion";
-import LoginPage from "./components/forms/authForm/LoginPage";
-import UserRegisterPage from "./components/forms/authForm/UserRegisterPage"
+import LoginPage from "./components/forms/authPages/LoginPage";
+import UserRegisterPage from "./components/forms/authPages/UserRegisterPage"
 import RoomPage from "./roomPage/RoomPage";
 import TaskPage from "./taskPage/TaskPage";
 import { Route, Routes, useLocation } from "react-router-dom";
