@@ -30,22 +30,21 @@ export const getOne = async (req, res) => {
 
 export const create = async (req, res) => {
     try {
-        const errors = validationResult(req)
+        const errors = validationResult(req.body.task)
         if (!errors.isEmpty()) {
             return res.status(400).json(errors.array())
         }
         const task = new TaskModel({
-            text: req.body.text,
+            text: req.body.task.text,
             creator: req.userId,
             subTasks: [],
-            tags: req.body.tags,
+            tags: req.body.task.tags,
             completed: req.body.completed,
-            status: req.body.status,
-            roomId: req.body.room.id,
+            roomId: req.body.roomId,
         })
-        await task.save()
 
-        const room = await RoomModel.findById(req.body.room.id)
+        await task.save()
+        const room = await RoomModel.findById(req.body.roomId)
         room.start.tasks.push(task._id)
         await room.save()
 
@@ -53,7 +52,7 @@ export const create = async (req, res) => {
     } catch (error) {
         console.log(error)
         res.status(500).json({
-            message: 'Не удалос создать задачу'
+            message: 'Не удалось создать задачу'
         })
     }
 }

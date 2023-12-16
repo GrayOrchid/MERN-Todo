@@ -27,7 +27,7 @@ export const getMe = createAsyncThunk('user/getMe', async (token) => {
 const userStateReducer = createSlice({
     name: 'user',
     initialState: {
-        data: null,
+        user: null,
         status: null,
         loginError: null,
         registerError: null,
@@ -35,6 +35,7 @@ const userStateReducer = createSlice({
     reducers: {
         logout: (state) => {
             state.data = null
+            state.status = null
             window.localStorage.removeItem('token')
         },
     },

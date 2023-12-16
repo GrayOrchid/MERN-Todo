@@ -15,9 +15,8 @@ export const createRoom = createAsyncThunk('createRoom', async (roomData, { disp
 
 export const filterByTags = createAsyncThunk('filterBytags', async (tagData, { rejectWithValue }) => {
     let { tag, roomName } = tagData;
-    const encodedRoomData = encodeURIComponent(roomName);
     try {
-        const { data } = await axios.get(`room/${encodedRoomData}/tasks/${tag}`)
+        const { data } = await axios.get(`room/${roomName}/tasks/${tag}`)
         return data
     } catch (error) {
         return rejectWithValue(error.response.data)
@@ -25,9 +24,9 @@ export const filterByTags = createAsyncThunk('filterBytags', async (tagData, { r
 })
 
 export const getRoom = createAsyncThunk('getRoom', async (roomData, { dispatch, rejectWithValue }) => {
-    const encodedRoomData = encodeURIComponent(roomData);
+
     try {
-        const { data } = await axios.get(`room/${encodedRoomData}`);
+        const { data } = await axios.get(`room/${roomData}`);
         dispatch(addOption(roomData))
         return data;
     } catch (error) {

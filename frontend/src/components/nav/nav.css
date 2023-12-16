@@ -39,3 +39,21 @@
     background:black;
     color:white;
 }
+.nav__auth-btns{
+    display:flex;
+    gap:0 10px;
+}
+.nav__auth-btn{
+    padding:5px;
+    border:1px black solid;
+    cursor:pointer;
+    transition:.2s;
+    border-radius:10px;
+    max-width:350px;
+    min-width:50px;
+    text-align:center;
+}
+.nav__auth-btn:hover{
+    background:black;
+    color:white;
+}

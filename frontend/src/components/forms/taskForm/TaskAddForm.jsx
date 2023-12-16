@@ -14,11 +14,12 @@ export default function TaskAddForm() {
     let [openTaskAdd, setOpenTaskAdd] = useState(false)
     let [tags, setTags] = useState([])
     let [tag, setTag] = useState('')
-    let [task, setTask] = useState({ room: { id: room._id } });
+    let [task, setTask] = useState({});
     let [disabled, setDisabled] = useState(false)
 
 
     useEffect(() => {
+        console.log(room);
         setTask({ ...task, tags: tags });
         tags.length === 5 ? setDisabled(true) : setDisabled(false)
     }, [tags]);
@@ -36,7 +37,8 @@ export default function TaskAddForm() {
     let hanldeTask = async (e) => {
         e.preventDefault();
         if (room) {
-            await dispatch(submitTask(task));
+            let taskData = { task: task, roomId: room._id }
+            await dispatch(submitTask(taskData));
             await dispatch(getRoom(room.name));
             await setTags([])
         }
@@ -47,15 +49,15 @@ export default function TaskAddForm() {
     }
 
     return (
-        <div className='form'>
-            <h2 className='form__modal-open' onClick={() => setOpenTaskAdd(true)}>Создать</h2>
+        <div className='form-pag'>
+            <h2 className='form-page__modal-open' onClick={() => setOpenTaskAdd(true)}>Создать</h2>
             <Modal open={openTaskAdd} setOpen={setOpenTaskAdd} status={status}>
-                <form className='form__container' onSubmit={hanldeTask} >
-                    <h3 className='form__name'>Создать задачу</h3>
-                    <input className='form__input' placeholder='Текст' maxLength="50" value={task.text} onChange={(e) => setTask({ ...task, text: e.target.value })} />
-                    <input className='form__input' type="text" placeholder='Тег' value={tag} maxLength="20" onChange={(e) => setTag(e.target.value)} />
+                <form className='form-page__container' onSubmit={hanldeTask} >
+                    <h3 className='form-page__name'>Создать задачу</h3>
+                    <input className='form-page__input' placeholder='Текст' maxLength="50" value={task.text} onChange={(e) => setTask({ ...task, text: e.target.value })} />
+                    <input className='form-page__input' type="text" placeholder='Тег' value={tag} maxLength="20" onChange={(e) => setTag(e.target.value)} />
                     {tags?.length > 0 && (<Tags tags={tags} removeTag={removeTag} />)}
-                    <span className={disabled ? 'form__btn-tag __form__btn-tag-disabled' : 'form__btn-tag'} onClick={addTag} >Добавить тег</span>
+                    <span className={disabled ? 'form-page__btn-tag __form__btn-tag-disabled' : 'form__btn-tag'} onClick={addTag} >Добавить тег</span>
                     <SubmitButton status={status} text={'Добавить'} />
                     <FormErrors error={error} />
                 </form>

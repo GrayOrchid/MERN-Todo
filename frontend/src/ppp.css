@@ -4,14 +4,16 @@
 *{
     margin:0px;
     padding:0px;
+    text-decoration:none;
 }
-
+a{
+  color:black;
+}
 
 body{
   font-family: 'Montserrat', sans-serif;
   background:#D1E5E5;
   overflow-x:hidden;
-
 }
 
 

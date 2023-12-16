@@ -1,30 +1,30 @@
-import App from "./App";
-import LoginForm from "./components/forms/authForm/LoginForm";
-import UserRegisterForm from "./components/forms/authForm/UserRegisterForm";
+import { AnimatePresence } from "framer-motion";
+import LoginPage from "./components/forms/authForm/LoginPage";
+import UserRegisterPage from "./components/forms/authForm/UserRegisterPage"
 import RoomPage from "./roomPage/RoomPage";
 import TaskPage from "./taskPage/TaskPage";
-import { createBrowserRouter } from "react-router-dom";
-const router = createBrowserRouter([
-    {
-        path: "/",
-        element: <App />
-    },
-    {
-        path: "task/:_id",
-        element: <TaskPage />
-    },
-    {
-        path: "room/:name",
-        element: <RoomPage />
-    },
-    {
-        path: "register-page",
-        element: <UserRegisterForm />
-    },
-    {
-        path: "login-page",
-        element: <LoginForm />
-    }
+import { Route, Routes, useLocation } from "react-router-dom";
+import HomePage from "./homepage/HomePage";
+import CreateRoom from "./components/forms/roomForms/CreateRoom";
+import GetRoom from "./components/forms/roomForms/GetRoom";
 
-])
-export default router
+
+export default function RoutesComponent() {
+    let location = useLocation()
+    return (
+        <AnimatePresence>
+            <Routes >
+                <Route path="/" element={<HomePage />} />
+                <Route path="/task/:_id" element={<TaskPage />} />
+                <Route path="/room/:name" element={<RoomPage />} />
+                <Route path="/register-page" element={<UserRegisterPage />} />
+                <Route path="/login-page" element={<LoginPage />} />
+                <Route path="/create-room" element={<CreateRoom />} />
+                <Route path="/get-room" element={<GetRoom />} />
+            </Routes>
+        </AnimatePresence>
+
+    )
+}
+
+// location = { location } key = { location.pathname }
