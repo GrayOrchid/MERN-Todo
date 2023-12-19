@@ -5,6 +5,7 @@
     margin:0px;
     padding:0px;
     text-decoration:none;
+    list-style:none;
 }
 a{
   color:black;
@@ -12,8 +13,14 @@ a{
 
 body{
   font-family: 'Montserrat', sans-serif;
-  background:#D1E5E5;
+  /* background:#D1E5E5; */
   overflow-x:hidden;
+  width:100%;
+}
+.App{
+  background:#D1E5E5;
+  width:100%;
+
 }
 
 
@@ -22,7 +29,8 @@ body{
   padding:0px;
 }
 
-@media  (max-width: 900px){
+/* @media  (max-width: 900px){
   .App{
-    width:90%;  }
-}
+    width:90%; 
+   }
+} */

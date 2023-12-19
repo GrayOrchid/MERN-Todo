@@ -8,7 +8,6 @@ import SubmitButton from '../../submitButton/SubmitButton';
 
 
 export default function CreateRoom() {
-    let [openCreateRoom, setOpenCreateRoom] = useState(false)
     let [roomData, setRoomData] = useState('')
     let [disabled, setDisabled] = useState(false)
     let dispatch = useDispatch()
@@ -29,14 +28,11 @@ export default function CreateRoom() {
 
     return (
         <div className='form'>
-            <button className='room-modal__open' onClick={() => setOpenCreateRoom(true)}>Создать Комнату</button>
-            <Modal open={openCreateRoom} setOpen={setOpenCreateRoom}>
-                <form className='form__container' onSubmit={handleRoom} >
-                    <h3 className='form__name'>Создать Комнату</h3>
-                    <input className='form__input' placeholder='Room Name' maxLength="20" type="text" onChange={(e) => setRoomData(e.target.value)} />
-                    <SubmitButton status={status} disabled={disabled} text='Создать' />
-                </form>
-            </Modal>
+            <form className='form__container' onSubmit={handleRoom} >
+                <h3 className='form__name'>Создать Комнату</h3>
+                <input className='form__input' placeholder='Room Name' maxLength="20" type="text" onChange={(e) => setRoomData(e.target.value)} />
+                <SubmitButton status={status} disabled={disabled} text='Создать' />
+            </form>
         </div>
     )
 }

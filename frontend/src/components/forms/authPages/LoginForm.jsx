@@ -5,9 +5,9 @@ import '../../forms/form.css';
 import SubmitButton from '../../submitButton/SubmitButton';
 import { Link, useNavigate } from 'react-router-dom';
 import { motion } from "framer-motion";
-import AnimatePage from '../../AnimatePage';
+import AnimatePage from '../../animate/AnimatePage';
 
-export default function LoginPage() {
+export default function LoginForm() {
     const [loginUserData, setLoginUserData] = useState({});
     const dispatch = useDispatch();
     const { status, loginError } = useSelector((state) => state.user);

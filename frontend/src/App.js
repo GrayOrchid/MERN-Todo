@@ -18,7 +18,6 @@ export default function App() {
     <div className='App'>
       <Nav />
       <RoutesComponent />
-
       {/* {room?.name && (<RoomPage />)} */}
 
     </div >
