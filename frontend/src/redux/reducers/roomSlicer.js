@@ -6,6 +6,7 @@ import axios from "../../axios";
 export const createRoom = createAsyncThunk('createRoom', async (roomData, { dispatch, rejectWithValue }) => {
     try {
         const { data } = await axios.post('/room', { roomData })
+        console.log(data);
         addOption(roomData)
         return data
     } catch (error) {
@@ -24,7 +25,7 @@ export const filterByTags = createAsyncThunk('filterBytags', async (tagData, { r
 })
 
 export const getRoom = createAsyncThunk('getRoom', async (roomData, { dispatch, rejectWithValue }) => {
-
+    console.log(roomData);
     try {
         const { data } = await axios.get(`room/${roomData}`);
         dispatch(addOption(roomData))

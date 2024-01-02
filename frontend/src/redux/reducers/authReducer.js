@@ -2,6 +2,7 @@ import { createAsyncThunk, createSlice } from "@reduxjs/toolkit";
 import axios from "../../axios";
 
 export const userSignIn = createAsyncThunk('user/userSignIn', async (registerUserData, { rejectWithValue }) => {
+    console.log(registerUserData);
     try {
         const { data } = await axios.post('/auth/register', registerUserData)
         return data
@@ -33,6 +34,10 @@ const userStateReducer = createSlice({
         registerError: null,
     },
     reducers: {
+        clearErrorInfo: (state) => {
+            state.loginError = null;
+            state.registerError = null;
+        },
         logout: (state) => {
             state.data = null
             state.status = null
@@ -85,4 +90,4 @@ const userStateReducer = createSlice({
 
 export const selectIsAuth = (state) => Boolean(state.user.data)
 export default userStateReducer.reducer
-export const { logout } = userStateReducer.actions
+export const { logout, clearErrorInfo } = userStateReducer.actions

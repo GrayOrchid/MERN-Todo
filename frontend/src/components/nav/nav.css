@@ -1,10 +1,22 @@
 .nav__room{
     display:flex;
+<<<<<<< Updated upstream
     justify-content: center;
 }
 .nav__room-btns{
+=======
+    justify-content:center;
+    width:100%;
+    padding:10px;
+    position: relative;
+}
+.header__nav{
+    width:90%;
+>>>>>>> Stashed changes
     display:flex;
+    justify-content:space-between;
     align-items:center;
+<<<<<<< Updated upstream
     gap:0 40px;
 }
 .nav__room-items{
@@ -40,9 +52,17 @@
     color:white;
 }
 .nav__auth-btns{
+=======
+    height:100%;
+}
+
+
+.header__nav-logo{
+>>>>>>> Stashed changes
     display:flex;
     gap:0 10px;
 }
+<<<<<<< Updated upstream
 .nav__auth-btn{
     padding:5px;
     border:1px black solid;
@@ -57,3 +77,19 @@
     background:black;
     color:white;
 }
+=======
+
+
+.nav-user__color{
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    color:white;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    box-shadow: 5px 5px 10px #9ba9a9, -5px -5px 10px #ffffff;
+    border:1px white solid;
+    font-weight:bold;
+}
+>>>>>>> Stashed changes

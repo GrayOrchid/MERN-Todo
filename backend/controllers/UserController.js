@@ -13,11 +13,6 @@ export const register = async (req, res) => {
             return res.status(400).json(errors.array())
         }
 
-        const existingUser = await UserModel.findOne({ email });
-
-        if (existingUser) {
-            return res.status(400).json({ message: 'Пользователь с таким email уже существует' });
-        }
         const password = req.body.password
         const salt = await bcrypt.genSalt(10)
         const hash = await bcrypt.hash(password, salt)
@@ -48,22 +43,14 @@ export const register = async (req, res) => {
     }
 }
 
+
 export const login = async (req, res) => {
     try {
         const user = await UserModel.findOne({ email: req.body.email })
 
-        if (!user) {
-            return res.status(404).json({
-                message: 'Пользователь не найден'
-            });
-        }
-
-        const isValidPass = await bcrypt.compare(req.body.password, user.passwordHash);
-
-        if (!isValidPass) {
-            return res.status(404).json({
-                message: 'Неверный логин или пароль'
-            });
+        const errors = validationResult(req)
+        if (!errors.isEmpty()) {
+            return res.status(400).json(errors.array())
         }
 
         const token = jwt.sign({

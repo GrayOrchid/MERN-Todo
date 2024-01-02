@@ -11,6 +11,7 @@ export default function RoomPage() {
 
     let { room, tag } = useSelector(state => state.room)
     let { name } = useParams()
+    console.log(name);
     let navigate = useNavigate()
     let dispatch = useDispatch()
 

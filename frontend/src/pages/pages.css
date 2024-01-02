@@ -1,0 +1,58 @@
+.page{
+    width:100%;
+    height:100vh; 
+    background:#ECF0F3;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+}
+
+.homepage{
+    width:100%;
+    height:100vh;
+    display:flex;
+    align-items:center;
+    flex-flow:column;
+    justify-content:initial;
+}
+
+.homepage__text{
+    margin-top:100px;
+    text-align:center;
+    width:30%;
+}
+.homepage__title{
+     letter-spacing: 5px; 
+}
+.homepage__subtitle{
+    margin-top:10px;
+    letter-spacing: 2px; 
+}
+.homepage__room-links{
+    display:flex;
+    gap:0 20px;
+    margin-top:20px;
+}
+
+.hompage__room-link{
+    color:blue;
+    letter-spacing: 2px; 
+    border:1px solid blue;
+    padding:5px;
+    border-radius:50px;
+}
+.hompage__room-need-auth{
+    color:grey;
+    margin-top:10px;
+    font-size:20px;
+    font-weight:bold;
+    transition:.2s;
+}
+.hompage__room-need-auth:hover{
+    color:blue
+}
+@media screen and (max-width: 768px) {
+    .homepage__text{
+        width:90%;
+    }
+}
