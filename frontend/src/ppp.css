@@ -12,18 +12,17 @@ a{
 
 body{
   font-family: 'Montserrat', sans-serif;
-<<<<<<< Updated upstream
   background:#D1E5E5;
-=======
+
   overflow-x:hidden;
   width:100%;
   background:#ECF0F3;
   overflow:hidden
 }
 .App{
-  /* background:#D1E5E5; */
+
   width:100%;
->>>>>>> Stashed changes
+
   overflow-x:hidden;
 }
 
