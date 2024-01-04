@@ -11,7 +11,7 @@ export default function CreateRoom() {
     const navigate = useNavigate();
     const dispatch = useDispatch();
     const { status, room } = useSelector((state) => state.room);
-    const { register, handleSubmit, setError, formState: { errors } } = useForm({ mode: 'onChange' });
+    const { register, handleSubmit, formState: { errors } } = useForm({ mode: 'onChange' });
 
     const handleRoom = (roomData) => {
         dispatch(createRoom(`${roomData.name} - ${Math.floor(Math.random() * 1000)}`));

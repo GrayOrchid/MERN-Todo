@@ -5,11 +5,11 @@ export default function SubmitButton({ status, text }) {
     return (
         <>
             {status === 'loading' ?
-                <Button sx={{ marginTop: '10px' }} variant="outlined" type='submit' disabled >
+                <Button sx={{ marginTop: '5px' }} variant="outlined" type='submit' disabled >
                     {text}
                 </Button>
                 :
-                <Button sx={{ marginTop: '10px' }} variant="outlined" type='submit' >
+                <Button sx={{ marginTop: '5px' }} variant="outlined" type='submit' >
                     {text}
                 </Button>
             }

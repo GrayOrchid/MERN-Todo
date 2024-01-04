@@ -54,6 +54,7 @@ export default function UserRegisterForm() {
                         value: /^(?!\s+$).+$/,
                         message: 'Недопустимый пароль',
                     },
+
                 })} placeholder="Введите пароль" autoComplete="off" helperText={errors?.password?.message} />
                 {registerError && (
                     <FormErrors error={registerError} />

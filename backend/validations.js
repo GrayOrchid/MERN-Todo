@@ -11,13 +11,12 @@ export const registerValidation = [
             throw new Error('Пользователь с таким email уже существует');
         } return true;
     }),
-    body('password', 'Пароль должен быть больше 5 символов').isLength({ min: 5 }),
-    body('userName', 'Имя должно быть больше 4 символов').isLength({ min: 4 }),
-    body('userName', 'Имя не должно превышать 20 символов').isLength({ max: 20 }),
+    body('password', 'Пароль слишком короткий').isLength({ min: 6 }),
+    body('userName', 'Имя слишком короткое').isLength({ min: 4 }),
+    body('userName', 'Имя слишком большое').isLength({ max: 20 }),
 ]
 
 export const userLogin = [
-    body('email', 'Неверный Email').isEmail(),
     body().isObject().custom(async (values) => {
         const user = await UserModel.findOne({ email: values.email });
         if (!user) {

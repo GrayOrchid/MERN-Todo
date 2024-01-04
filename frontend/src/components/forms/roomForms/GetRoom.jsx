@@ -13,7 +13,7 @@ export default function GetRoom() {
     let [selectedRoom, setSelectedRoom] = useState('');
     let dispatch = useDispatch();
     let { status, room } = useSelector(state => state.room);
-    const { register, handleSubmit } = useForm();
+    const { register, handleSubmit, formState: { errors } } = useForm({ mode: 'onChange' });
     let navigate = useNavigate();
 
     useEffect(() => {
@@ -44,12 +44,15 @@ export default function GetRoom() {
             <form className='form__form' onSubmit={handleSubmit(handleRoom)}>
                 <TextField
                     className='form__input'
+                    error={Boolean(errors.name?.message)}
                     type='text'
                     {...register('roomName')}
                     placeholder='Введите название'
                     autoComplete='off'
                     value={selectedRoom}
+                    variant="outlined"
                     onChange={handleRoomChange}
+                    helperText={errors?.name?.message}
                 />
                 {storedOptions.length > 0 && (
                     <Select
