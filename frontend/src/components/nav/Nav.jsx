@@ -31,31 +31,3 @@ export default function Nav() {
     )
 }
 
-
-
-
-
-{/* <div className='nav'>
-<div className="nav__auth">
-    {isAuth ? <User /> :
-        <div className='nav__auth-btns'>
-            <UserRegisterForm />
-            <LoginForm />
-        </div >
-    }
-</div>
-<div className='nav__room'>
-    {room?.name &&
-        (<div className='nav__room-items'>
-            <h1 className='nav__room-name'>{room?.name}</h1>
-            <p className='nav__room-leave' onClick={() => dispatch(leave())}>Выйти</p>
-        </div>)
-    }
-    {isAuth && !room?.name && (
-        <div className='nav__room-btns'>
-            <CreateRoom />
-            <GetRoom />
-        </div>
-    )}
-</div>
-</div > */}

@@ -5,7 +5,7 @@ import { FaReact } from "react-icons/fa";
 import { getMe, selectIsAuth } from '../../redux/reducers/authReducer';
 import { Link } from 'react-router-dom';
 import NavAuth from './NavAuth';
-import Title from '../title/Title';
+// import Title from '../title/Title';
 import User from './User';
 export default function Header() {
     let dispatch = useDispatch()
@@ -23,7 +23,7 @@ export default function Header() {
             <header className='header__nav'>
                 <Link className='header__nav-logo ' to={'/'}>
                     <FaReact className='header__nav-logo-icon nav-auth__icon' />
-                    <Title />
+                    {/* <Title /> */}
                 </Link>
                 {isAuth ? <User /> : <NavAuth />}
             </header>

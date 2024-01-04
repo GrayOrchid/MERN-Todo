@@ -1,95 +1,88 @@
-.nav__room{
-    display:flex;
-<<<<<<< Updated upstream
+.nav__room {
+    display: flex;
     justify-content: center;
+    gap: 0 40px;
 }
-.nav__room-btns{
-=======
-    justify-content:center;
-    width:100%;
-    padding:10px;
+
+.nav__room-btns {
+    justify-content: center;
+    width: 100%;
+    padding: 10px;
     position: relative;
 }
-.header__nav{
-    width:90%;
->>>>>>> Stashed changes
-    display:flex;
-    justify-content:space-between;
-    align-items:center;
-<<<<<<< Updated upstream
-    gap:0 40px;
+
+.header__nav {
+    width: 90%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    height: 100%;
 }
-.nav__room-items{
-    display:flex;
-    align-items:center;
-    flex-flow:column;
+
+.nav__room-items {
+    display: flex;
+    align-items: center;
+    flex-flow: column;
 }
-.nav__room-name{
+
+.nav__room-name {
     word-break: break-word;
-    text-align:center;
-}
-.nav__auth{
-    padding:.5rem 
-}
-.nav__auth-btns{
-    display:flex;
-}
-.nav__room-leave{
-    text-align:center;
-    padding:1px;
-    border:1px solid black;
-    cursor:pointer;
-    border-radius:10px;
-    transition:.2s;
-    margin-top:10px;
-    width:100px;
-    display:flex;
-    justify-content:center;
-    align-items:center;
-}
-.nav__room-leave:hover{
-    background:black;
-    color:white;
-}
-.nav__auth-btns{
-=======
-    height:100%;
+    text-align: center;
 }
 
-
-.header__nav-logo{
->>>>>>> Stashed changes
-    display:flex;
-    gap:0 10px;
+.nav__auth {
+    padding: 0.5rem;
 }
-<<<<<<< Updated upstream
-.nav__auth-btn{
-    padding:5px;
-    border:1px black solid;
-    cursor:pointer;
-    transition:.2s;
-    border-radius:10px;
-    max-width:350px;
-    min-width:50px;
-    text-align:center;
-}
-.nav__auth-btn:hover{
-    background:black;
-    color:white;
-}
-=======
 
+.nav__room-leave {
+    text-align: center;
+    padding: 1px;
+    border: 1px solid black;
+    cursor: pointer;
+    border-radius: 10px;
+    transition: 0.2s;
+    margin-top: 10px;
+    width: 100px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
 
-.nav-user__color{
+.nav__room-leave:hover {
+    background: black;
+    color: white;
+}
+
+.nav__auth-btn {
+    padding: 5px;
+    border: 1px black solid;
+    cursor: pointer;
+    transition: 0.2s;
+    border-radius: 10px;
+    max-width: 350px;
+    min-width: 50px;
+    text-align: center;
+}
+
+.nav__auth-btn:hover {
+    background: black;
+    color: white;
+}
+
+.header__nav-logo {
+    display: flex;
+    gap: 0 10px;
+}
+
+.nav-user__color {
     width: 40px;
     height: 40px;
     border-radius: 50%;
-    color:white;
-    display:flex;
-    align-items:center;
-    justify-content:center;
+    color: white;
+    display: flex;
+    align-items: center;
+    justify-content: center;
     box-shadow: 5px 5px 10px #9ba9a9, -5px -5px 10px #ffffff;
-    border:1px white solid;
-    font-weight:bold;
+    border: 1px white solid;
+    font-weight: bold;
 }
->>>>>>> Stashed changes

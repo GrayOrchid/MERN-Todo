@@ -1,143 +1,55 @@
-<<<<<<< Updated upstream
-.form-page {
-    width: 100%;
-    height: 100vh;
-    padding: 1rem;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-  }
-  
-  .form-page__form {
-    border-radius: 10px;
-    background: #d1e5e5;
-    box-shadow: 5px 5px 17px #7d8989, -5px -5px 17px #ffffff;
-    background: white;
+.form {
+    box-shadow: 7px 7px 10px #cbced1, -7px -7px 10px white;
+    min-width: 250px;
+    max-width: 350px;
     max-height: 500px;
-    max-width: 300px;
     display: flex;
     flex-flow: column;
-    gap: 30px 0px;
-    padding: 1rem; 
-  }
-
-
-.form-page__modal-open{
-    outline:none;
-    border:none;
-    color:#4385F3;
-    font-weight:bold;
-    padding:12px;
-    border-radius: 50px;
-    cursor:pointer;
-    transition:.2s;
-    display:flex;
-    text-align:center;
-    box-shadow: 0 0 1px;
+    padding: 30px;
+    border-radius: 5px;
+    background: white;
 }
 
-
-.form-page__modal-open:hover{
-    transform:scale(1.1);
-    box-shadow: 0 0 10px #4385F3;
-}
-.form-page__modal-open:hover{
-    color:white;
-    background:black;
+.form__form {
+    display: flex;
+    flex-flow: column;
+    margin-top: 30px;
+    width: 250px;
 }
 
-
-.form-page__form-input{
-    padding:5px;
-    font-size:20px;
-    border:none;
-    border-bottom:1px black solid;
-    transtion:.2s;
-}
-.form-page__form-input:focus{
-    outline:none;
-    border-bottom:1px blue solid;
-    color:blue;
+.form__title {
+    text-align: start;
+    width: 100%;
 }
 
-.form-page__form-inputt:focus:placeholder {
-    color: blue;
+.dropdown {
+    width: 100%;
+    position: relative;
+    margin-bottom: 30px;
 }
 
-
-
-.form__select-option{
-    cursor:pointer;
-    padding:1115px;
-    display:flex;
+.dropdown__btn {
+    padding: 15px 20px;
+    background: white;
+    box-shadow: 3px 3px 10px rgba(0, 0, 0, 0.06);
+    font-weight: bold;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    cursor: pointer;
 }
 
-.dropdown{
-    width:100%;
-    position:relative
-}
-=======
-.form{
-    box-shadow: 7px 7px 10px #cbced1, -7px -7px 10px white;
-    min-width:250px;
-    max-width:350px;
-    max-height:500px;
-    display:flex;
-    flex-flow:column;
-    padding:30px;
-    border-radius:5px;
-    background:white;
-}
-.form__form{
-    display:flex;
-    flex-flow:column;
-    margin-top:30px;
-    width:250px;
+.dropdown__btn-arrow {
+    transition: 0.2s;
+    transform: rotate(0deg);
 }
 
-.form__title{
-    text-align:start;
-    width:100%;
+.__active-dropdown__btn-arrow {
+    transform: rotate(180deg);
 }
-.dropdown{
-    width:100%;
-    position:relative;
-    margin-bottom:30px;
-    }
->>>>>>> Stashed changes
-.dropdown__btn{
-    padding:15px 20px;
-    background:white;
-    box-shadow:3px 3px 10px rgba(0,0,0,0.06);
-    font-weight:bold;
-    display:flex;
-    align-items:center;
-    justify-content:space-between;
-    cursor:pointer;
-<<<<<<< Updated upstream
 
-}
-.dropdown__btn-arrow{
-   transition:.2s;
-   transform:rotate(0deg)
-}
-.__active-dropdown__btn-arrow{
-    transform:rotate(180deg)
-}
 .dropdown__content {
-=======
-    
-    }
-    .dropdown__btn-arrow{
-    transition:.2s;
-    transform:rotate(0deg)
-    }
-    .__active-dropdown__btn-arrow{
-    transform:rotate(180deg)
-    }
-    .dropdown__content {
-    z-index:10000;
->>>>>>> Stashed changes
+    z-index: 10000;
     position: absolute;
     top: 110%;
     left: 0;
@@ -145,204 +57,104 @@
     background: #fff;
     width: 95%;
     box-shadow: 3px 3px 10px 6px rgba(0, 0, 0, 0.06);
-<<<<<<< Updated upstream
-    opacity: 0;
-    max-height: 0;
     overflow: hidden;
     transition: opacity 0.2s, max-height 0.1s;
 }
 
-.__dropdown-active {
-    opacity: 1;
-    max-height: 100vh;
+.dropdown__item {
+    padding: 10px;
+    transition: 0.2s;
+    cursor: pointer;
 }
 
-.dropdown__item{
-    padding:10px;
-    transition:.2s;
-    cursor:pointer;
-}
-.dropdown__item:hover{
-    background:#f4f4f4
-}
-.dropdown__item{
-    display:flex;
-    justify-content:space-between;
-}
-.dropdown__item-btns{
-    display:flex;
-    gap:0 10px;
-}
-.dropdown__item-btn{
-    position:pointer;
-    transition:.2s;
-}
-.__purple-dropdown__item-btn:hover{
-    color:purple;
-}
-.__red-dropdown__item-btn:hover{
-    color:red;
+.dropdown__item:hover {
+    background: #f4f4f4;
 }
 
-.form__btn-tag{
-=======
-    overflow: hidden;
-    transition: opacity 0.2s, max-height 0.1s;
-    }
-    
-    .dropdown__item{
-    padding:10px;
-    transition:.2s;
-    cursor:pointer;
-    }
-    .dropdown__item:hover{
-    background:#f4f4f4
-    }
-    .dropdown__item{
-    display:flex;
-    justify-content:space-between;
-    }
-    .dropdown__item-btns{
-    display:flex;
-    gap:0 10px;
-    }
-    .dropdown__item-btn{
-    position:pointer;
-    transition:.2s;
-    }
-    .__purple-dropdown__item-btn:hover{
-    color:purple;
-    }
-    .__red-dropdown__item-btn:hover{
-    color:red;
-    }
-    
-    .form__btn-tag{
->>>>>>> Stashed changes
-    padding:5px;
-    cursor:pointer;
-    max-width:120px;
-    font-weight:bold;
-    border:2px solid #78009e;
-    background:none;
-    color:#78009e;
-    transition:.2s;
-    opacity:100%;
-<<<<<<< Updated upstream
-}
-.__form__btn-tag-disabled{
-    opacity:0%;
-}
-.tags{
-=======
-    }
-    .__form__btn-tag-disabled{
-    opacity:0%;
-    }
-    .tags{
->>>>>>> Stashed changes
-    width:100%;
-    display:flex;
-    flex-wrap:wrap;
-    gap:10px 10px;
-<<<<<<< Updated upstream
-}
-.tags_tag{
-=======
-    }
-    .tags_tag{
->>>>>>> Stashed changes
-    border:1px solid #78009e;
-    gap:0 5px;
-    padding:5px;
-    display:flex;
-    cursor:pointer;
-    align-items:center;
-    font-weight:bold;
-    color:#78009e;
-    transition:.2s;
-<<<<<<< Updated upstream
-}
-.tags_tag:hover{
-transform:scale(1.1)
-}
-.tags__remove{
-    transition:.2s;
-
-}
-.tags__remove:hover{
-    color:red;
-}
-.dropdown__item-text{
-    transition:.2s;
-}
-.dropdown__item-text:hover{
-    color:blue
+.dropdown__item {
+    display: flex;
+    justify-content: space-between;
 }
 
-.form-page__form-errors{
+.dropdown__item-btns {
+    display: flex;
+    gap: 0 10px;
+}
+
+.dropdown__item-btn {
+    position: pointer;
+    transition: 0.2s;
+}
+
+.__purple-dropdown__item-btn:hover {
+    color: purple;
+}
+
+.__red-dropdown__item-btn:hover {
+    color: red;
+}
+
+.form__btn-tag {
+    padding: 5px;
+    cursor: pointer;
+    max-width: 120px;
+    font-weight: bold;
+    border: 2px solid #78009e;
+    background: none;
+    color: #78009e;
+    transition: 0.2s;
+    opacity: 100%;
+}
+
+.__form__btn-tag-disabled {
+    opacity: 0%;
+}
+
+.tags {
+    width: 100%;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px 10px;
+}
+
+.tags_tag {
+    border: 1px solid #78009e;
+    gap: 0 5px;
+    padding: 5px;
+    display: flex;
+    cursor: pointer;
+    align-items: center;
+    font-weight: bold;
+    color: #78009e;
+    transition: 0.2s;
+}
+
+.tags_tag:hover {
+    transform: scale(1.1);
+}
+
+.tags__remove {
+    transition: 0.2s;
+}
+
+.tags__remove:hover {
+    color: red;
+}
+
+.dropdown__item-text {
+    transition: 0.2s;
+}
+
+.dropdown__item-text:hover {
+    color: blue;
+}
+
+.form__errors{
     list-style:none;
-    color:red;
     display:flex;
     flex-flow:column;
-    word-break: break-word;
-    line-height:1.5;
-    width:300px;
-}
-.form-page__form-back-btn{
-    color:black;
-    font-weight:bold;
+    gap: 5px 5px;
+    width:100%;
     margin-top:-15px;
-}
-.form-page__form-back-btn-link-to-register{
-    margin-top:-15px;
-    color:black;
-}
-.form-page__form-error{
     color:red;
 }
-=======
-    }
-    .tags_tag:hover{
-    transform:scale(1.1)
-    }
-    .tags__remove{
-    transition:.2s;
-    
-    }
-    .tags__remove:hover{
-    color:red;
-    }
-    .dropdown__item-text{
-    transition:.2s;
-    }
-    .dropdown__item-text:hover{
-    color:blue
-    }
-    .form-page__form-link{
-        margin-top:10px;
-        transition:.2s
-    }
-    .form-page__form-link:hover{
-        color:blue;
-    }
-    .form__errors{
-        margin-top:-15px;
-        display:flex;
-        flex-flow:column;
-        gap:5px 0px;
-    }
-    .form__error{
-        font-family: "Roboto","Helvetica","Arial",sans-serif;
-        font-weight: 400;
-        font-size: 0.75rem;
-        line-height: 1.66;
-        letter-spacing: 0.03333em;
-        text-align: left;
-        margin-right: 14px;
-        color: #d32f2f;
-    }
-    .form__error-login{
-        margin-top:-15px;
-    }
->>>>>>> Stashed changes

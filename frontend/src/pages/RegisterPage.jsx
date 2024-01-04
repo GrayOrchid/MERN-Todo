@@ -1,6 +1,6 @@
 import React from 'react'
 import './pages.css'
-import UserRegisterForm from '../components/forms/authPages/UserRegisterForm'
+import UserRegisterForm from '../components/forms/authForm/UserRegisterForm'
 import AnimatePage from '../components/animate/AnimatePage'
 
 export default function RegisterPage() {

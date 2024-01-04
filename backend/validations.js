@@ -40,16 +40,3 @@ export const postCreateValidation = [
     body('imageUrl', 'выв').isString().optional(),
 ]
 
-// if (!user) {
-//     return res.status(404).json({
-//         message: 'Пользователь не найден'
-//     });
-// }
-
-// const isValidPass = await bcrypt.compare(req.body.password, user.passwordHash);
-
-// if (!isValidPass) {
-//     return res.status(404).json({
-//         message: 'Неверный логин или пароль'
-//     });
-// }
