@@ -1,0 +1,12 @@
+.nav-user__color {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    color: white;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-shadow: 5px 5px 10px #9ba9a9, -5px -5px 10px #ffffff;
+    border: 1px white solid;
+    font-weight: bold;
+}

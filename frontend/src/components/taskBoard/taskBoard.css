@@ -16,9 +16,9 @@
     gap: 0 10px;
     align-items: center;
     margin-bottom: 20px;
-    border-radius: 8px; /* Adjust the border-radius to your preference */
-    padding: 12px; /* Padding for the container */
-    box-shadow: 3px 3px 8px rgba(0, 0, 0, 0.1), -3px -3px 8px rgba(255, 255, 255, 0.8); /* Neumorphism shadow */
+    border-radius: 8px; 
+    padding: 12px; 
+    box-shadow: 3px 3px 8px rgba(0, 0, 0, 0.1), -3px -3px 8px rgba(255, 255, 255, 0.8);
     max-width:100%;
     min-width:10px;
 }

@@ -5,13 +5,13 @@
   gap: 5px;
 }
 
-.board {
+.boards__board {
   flex: 1;
   border-radius: 5px;
   padding: 20px;
 }
 
-.board h1 {
+.boards__title {
   font-size: 18px;
   margin-bottom: 10px;
 }
@@ -20,7 +20,7 @@
   .boards {
     width: 100%;
   }
-  .board {
+  .boards__board {
     flex: initial;
     width: 100%;
     padding: 10px;

@@ -24,16 +24,16 @@ function Boards() {
     return (
         <div className="boards">
             <DragDropContext onDragEnd={onDragEnd}>
-                <div className="board">
-                    <h1>Start</h1>
+                <div className="boards__board">
+                    <h1 className='boards__title'>Start</h1>
                     <Tasks listName="start" name={name} todos={startTasks} roomId={roomId} />
                 </div>
-                <div className="board">
-                    <h1>Now</h1>
+                <div className="boards__board">
+                    <h1 className='boards__title'>Now</h1>
                     <Tasks listName="now" name={name} todos={nowTasks} roomId={roomId} />
                 </div>
-                <div className="board">
-                    <h1>Finally</h1>
+                <div className="boards__board">
+                    <h1 className='boards__title'>Finally</h1>
                     <Tasks listName="finally" name={name} todos={finallyTasks} roomId={roomId} />
                 </div>
             </DragDropContext>
