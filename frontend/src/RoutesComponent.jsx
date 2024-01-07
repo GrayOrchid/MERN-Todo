@@ -1,6 +1,4 @@
 import { AnimatePresence } from "framer-motion";
-import RoomPage from "./roomPage/RoomPage";
-import TaskPage from "./taskPage/TaskPage";
 import { Route, Routes, useLocation } from "react-router-dom";
 import HomePage from "./pages/HomePage";
 import LoginPage from "./pages/LoginPage";
@@ -11,6 +9,10 @@ import { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { leave } from "./redux/reducers/roomSlicer";
 import { clearErrorInfo, selectIsAuth } from "./redux/reducers/authReducer";
+import RoomPage from "./pages/roomPage/RoomPage";
+import TaskPage from "./pages/taskPage/TaskPage";
+
+
 
 export default function RoutesComponent() {
     let location = useLocation()

@@ -31,11 +31,4 @@ export const userLogin = [
 ];
 
 
-export const postCreateValidation = [
-    body('text', 'Введите текст').isLength({ min: 1 }).isString(),
-    body('tags', 'Неверный формат тэгов (укажите массив)').optional().isArray(),
-    body('subTasks', 'Неверный формат тэгов (укажите массив)').optional().isArray(),
-    body('completed', 'Неверный формат тэгов (укажите массив)').optional().isBoolean(),
-    body('imageUrl', 'выв').isString().optional(),
-]
 

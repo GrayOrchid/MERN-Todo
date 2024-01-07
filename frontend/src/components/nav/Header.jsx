@@ -21,13 +21,13 @@ export default function Header() {
 
     return (
         <header className='header'>
-            <header className='header__nav'>
-                <Link className='header__nav-logo ' to={'/'}>
+            <nav className='header__nav'>
+                <Link className='header__nav-logo' style={{ fontSize: '1.5rem' }} to={'/'}>
                     <FaReact className='header__nav-logo-icon nav-auth__icon' />
-                    {/* <Title /> */}
+                    <span className='header__nav-logo-text'> React Todo</span>
                 </Link>
                 {isAuth ? <User /> : <NavAuth />}
-            </header>
+            </nav>
         </header >
     )
 }

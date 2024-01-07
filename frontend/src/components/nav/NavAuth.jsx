@@ -17,7 +17,7 @@ export default function NavAuthGuest() {
     return (
         <div>
             <IconButton aria-label="user-menu" onClick={handleClick}>
-                <FaRegUserCircle />
+                <FaRegUserCircle style={{ fontSize: '1.5rem' }} />
             </IconButton>
             <Menu
                 anchorEl={anchorEl}

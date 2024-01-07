@@ -1,8 +1,8 @@
 import React from 'react'
 import './taskPage.css'
 import { Link, useParams } from 'react-router-dom'
-import SubtaskForm from '../components/forms/subtaskForm/SubtaskForm';
-import TaskBoard from '../components/taskBoard/TaskBoard';
+import SubtaskForm from '../../components/forms/subtaskForm/SubtaskForm';
+import TaskBoard from '../../components/taskBoard/TaskBoard';
 
 export default function TaskPage() {
     let { _id } = useParams()

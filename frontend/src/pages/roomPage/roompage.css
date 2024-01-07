@@ -1,0 +1,30 @@
+.room-page__tag{
+    margin-left:1rem;
+    display:flex;
+    align-items:center;
+    gap:0 5px;
+    font-size:20px;
+    cursor:pointer;
+}
+.room-page{
+    margin-top:25px;
+}
+.room-page__info{
+    display:flex;
+    flex-flow:column;
+    align-items:center;
+}
+.room-page__name{
+    text-align:center;
+}
+.room-page__leave{
+    margin-top:10px;
+    max-width:200px;
+    padding:5px;
+    border-radius:10px;
+    border:1px black solid;
+    cursor:pointer;
+}
+.room-page__task-bords{
+    margin-top:50px
+}

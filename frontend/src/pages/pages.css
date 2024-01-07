@@ -17,16 +17,21 @@
 }
 
 .homepage__text{
-    margin-top:100px;
+    margin-top:150px;
+    display:flex;
+    flex-flow:column;
+    justify-content:center;
     text-align:center;
     width:30%;
 }
 .homepage__title{
      letter-spacing: 5px; 
+     color:#50BBD7;
 }
 .homepage__subtitle{
     margin-top:10px;
     letter-spacing: 2px; 
+    width:100%;
 }
 .homepage__room-links{
     display:flex;
@@ -35,11 +40,12 @@
 }
 
 .hompage__room-link{
-    color:blue;
+    color:#50BBD7;
     letter-spacing: 2px; 
-    border:1px solid blue;
-    padding:5px;
+    border:1px solid #50BBD7;
+    padding:7px;
     border-radius:50px;
+    font-weight:bold;
 }
 .hompage__room-need-auth{
     color:grey;
@@ -51,8 +57,9 @@
 .hompage__room-need-auth:hover{
     color:blue
 }
+
 @media screen and (max-width: 768px) {
     .homepage__text{
-        width:90%;
+        width:100%;
     }
 }

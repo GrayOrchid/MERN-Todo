@@ -104,6 +104,8 @@
     color: #78009e;
     transition: 0.2s;
     opacity: 100%;
+    margin: 10px 0px 10px 0px;
+
 }
 
 .__form__btn-tag-disabled {

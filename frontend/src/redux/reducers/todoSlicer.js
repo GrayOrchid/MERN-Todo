@@ -12,6 +12,7 @@ export const getOne = createAsyncThunk('todos/getOne', async (id, { rejectWithVa
     }
 })
 export const submitTask = createAsyncThunk('todos/submitTask', async (task, { rejectWithValue }) => {
+    console.log(task);
     try {
         const { data } = await axios.post('/tasks', task)
         return data

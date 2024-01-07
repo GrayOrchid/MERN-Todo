@@ -1,7 +1,7 @@
 import express from 'express'
 import cors from 'cors'
 import mongoose from 'mongoose'
-import { registerValidation, postCreateValidation, userLogin } from './validations.js'
+import { registerValidation, userLogin } from './validations.js'
 import checkAuth from './utils/checkAuth.js'
 import * as UserControllers from './controllers/UserController.js'
 import * as TaskController from './controllers/TaskController.js'
@@ -29,7 +29,7 @@ app.post('/auth/login', userLogin, UserControllers.login);
 app.post('/auth/register', registerValidation, UserControllers.register)
 app.get('/auth/me', checkAuth, UserControllers.getMe);
 
-app.post('/tasks', postCreateValidation, TaskController.create)
+app.post('/tasks', TaskController.create)
 app.get('/tasks', TaskController.getAll)
 app.get('/tasks/:id', TaskController.getOne)
 app.delete('/tasks/:id', TaskController.remove)

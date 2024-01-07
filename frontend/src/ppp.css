@@ -23,7 +23,6 @@ body{
 
   width:100%;
 
-  overflow-x:hidden;
 }
 
 
@@ -34,5 +33,6 @@ body{
 
 @media  (max-width: 900px){
   .App{
-    width:90%;  }
+    /* width:99%;   */
+  }
 }

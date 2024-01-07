@@ -44,6 +44,7 @@ export default function GetRoom() {
             <form className='form__form' onSubmit={handleSubmit(handleRoom)}>
                 <TextField
                     className='form__input'
+                    sx={{ marginBottom: '20px' }}
                     error={Boolean(errors.name?.message)}
                     type='text'
                     {...register('roomName')}

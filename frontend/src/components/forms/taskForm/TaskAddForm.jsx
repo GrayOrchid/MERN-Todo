@@ -7,6 +7,8 @@ import '../../forms/form.css';
 import FormErrors from '../FormErrors';
 import Tags from './Tags';
 import SubmitButton from '../../submitButton/SubmitButton';
+import { TextField } from '@mui/material';
+import { useForm } from 'react-hook-form';
 export default function TaskAddForm() {
     let dispatch = useDispatch();
     let { error, status } = useSelector(state => state.todo)
@@ -16,52 +18,71 @@ export default function TaskAddForm() {
     let [tag, setTag] = useState('')
     let [task, setTask] = useState({});
     let [disabled, setDisabled] = useState(false)
+    let { register, handleSubmit, watch, formState: { errors }, reset } = useForm({ mode: 'onChange' })
 
 
     useEffect(() => {
-        console.log(room);
         setTask({ ...task, tags: tags });
         tags.length === 5 ? setDisabled(true) : setDisabled(false)
     }, [tags]);
 
-    let addTag = (e) => {
-        e.preventDefault()
+    let addTag = (tag) => {
         const newTag = { tag, id: Date.now() };
         setTags([...tags, newTag])
-        setTag(' ')
+        reset({ tag: ' ' })
     }
 
     let removeTag = (e) => {
         setTags(tags.filter((tag) => tag.id !== e))
     }
-    let hanldeTask = async (e) => {
-        e.preventDefault();
+    let hanldeTask = async (task) => {
         if (room) {
-            let taskData = { task: task, roomId: room._id }
+            let taskData = { text: task.text, roomId: room._id, tags }
             await dispatch(submitTask(taskData));
             await dispatch(getRoom(room.name));
             await setTags([])
         }
         if (!error) {
-            setTask({ ...task, text: ' ' });
             setOpenTaskAdd(false)
         }
     }
 
     return (
-        <div className='form-pag'>
-            <h2 className='form-page__modal-open' onClick={() => setOpenTaskAdd(true)}>Создать</h2>
+        <>
+            <h2 className='form-page__modal-open ' onClick={() => setOpenTaskAdd(true)}>Создать</h2>
             <Modal open={openTaskAdd} setOpen={setOpenTaskAdd} status={status}>
-                <form className='form-page__container' onSubmit={hanldeTask} >
-                    <h3 className='form-page__name'>Создать задачу</h3>
-                    <input className='form-page__input' placeholder='Текст' maxLength="50" value={task.text} onChange={(e) => setTask({ ...task, text: e.target.value })} />
-                    <input className='form-page__input' type="text" placeholder='Тег' value={tag} maxLength="20" onChange={(e) => setTag(e.target.value)} />
-                    {tags?.length > 0 && (<Tags tags={tags} removeTag={removeTag} />)}
-                    <span className={disabled ? 'form-page__btn-tag __form__btn-tag-disabled' : 'form__btn-tag'} onClick={addTag} >Добавить тег</span>
-                    <SubmitButton status={status} text={'Добавить'} />
-                    <FormErrors error={error} />
-                </form>
+                <div className='form'>
+                    <h3 className='form__title'>Создать задачу</h3>
+                    <form className='form__form' onSubmit={handleSubmit(hanldeTask)} >
+
+                        <TextField sx={{ marginBottom: '20px' }} label='Текст' variant="outlined" autoComplete='off'
+                            helperText={errors?.text?.message}
+                            error={Boolean(errors.text?.message)}
+                            {...register('text', {
+                                required: 'Напшите текст',
+                                pattern: {
+                                    value: /^(?!\s+$).+$/,
+                                    message: 'Недопустимый текст',
+                                },
+                            })}
+                        />
+                        <TextField sx={{ marginBottom: '20px' }} label='Тэг' variant="outlined" autoComplete='off'
+                            helperText={errors?.tag?.message}
+                            error={Boolean(errors.tag?.message)}
+                            {...register('tag', {
+                                pattern: {
+                                    value: /^(?!\s+$).+$/,
+                                    message: 'Недопустимый текст',
+                                },
+                            })}
+                        />
+                        {tags?.length > 0 && (<Tags tags={tags} removeTag={removeTag} />)}
+                        <span className={disabled ? 'form-page__btn-tag __form__btn-tag-disabled' : 'form__btn-tag'} onClick={() => addTag(watch('tag'))}  >Добавить тег</span>
+                        <SubmitButton status={status} text={'Добавить'} />
+                        <FormErrors error={error} />
+                    </form>
+                </div >
             </Modal >
-        </div >
+        </>
     )
 }

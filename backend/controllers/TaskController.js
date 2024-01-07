@@ -29,16 +29,13 @@ export const getOne = async (req, res) => {
 
 
 export const create = async (req, res) => {
+    console.log(req.body);
     try {
-        const errors = validationResult(req.body.task)
-        if (!errors.isEmpty()) {
-            return res.status(400).json(errors.array())
-        }
         const task = new TaskModel({
-            text: req.body.task.text,
+            text: req.body.text,
             creator: req.userId,
             subTasks: [],
-            tags: req.body.task.tags,
+            tags: req.body.tags,
             completed: req.body.completed,
             roomId: req.body.roomId,
         })
