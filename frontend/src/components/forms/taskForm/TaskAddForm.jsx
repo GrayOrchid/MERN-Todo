@@ -23,7 +23,7 @@ export default function TaskAddForm() {
 
     useEffect(() => {
         setTask({ ...task, tags: tags });
-        tags.length === 5 ? setDisabled(true) : setDisabled(false)
+        tags.length >= 5 ? setDisabled(true) : setDisabled(false)
     }, [tags]);
 
     let addTag = (tag) => {
@@ -54,7 +54,6 @@ export default function TaskAddForm() {
                 <div className='form'>
                     <h3 className='form__title'>Создать задачу</h3>
                     <form className='form__form' onSubmit={handleSubmit(hanldeTask)} >
-
                         <TextField sx={{ marginBottom: '20px' }} label='Текст' variant="outlined" autoComplete='off'
                             helperText={errors?.text?.message}
                             error={Boolean(errors.text?.message)}
@@ -76,8 +75,7 @@ export default function TaskAddForm() {
                                 },
                             })}
                         />
-                        {tags?.length > 0 && (<Tags tags={tags} removeTag={removeTag} />)}
-                        <span className={disabled ? 'form-page__btn-tag __form__btn-tag-disabled' : 'form__btn-tag'} onClick={() => addTag(watch('tag'))}  >Добавить тег</span>
+                        <Tags tags={tags} removeTag={removeTag} watch={watch} addTag={addTag} disabled={disabled} />
                         <SubmitButton status={status} text={'Добавить'} />
                         <FormErrors error={error} />
                     </form>
