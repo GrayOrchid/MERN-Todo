@@ -3,22 +3,21 @@ import { useDispatch, useSelector, } from 'react-redux';
 import Modal from '../../modal/Modal';
 import { submitTask } from '../../../redux/reducers/todoSlicer';
 import { getRoom } from '../../../redux/reducers/roomSlicer';
-import '../../forms/form.css';
 import FormErrors from '../FormErrors';
 import Tags from './Tags';
 import SubmitButton from '../../submitButton/SubmitButton';
 import { TextField } from '@mui/material';
 import { useForm } from 'react-hook-form';
+import Form from '../Form';
 export default function TaskAddForm() {
-    let dispatch = useDispatch();
-    let { error, status } = useSelector(state => state.todo)
-    let { room } = useSelector(state => state.room)
-    let [openTaskAdd, setOpenTaskAdd] = useState(false)
-    let [tags, setTags] = useState([])
-    let [tag, setTag] = useState('')
-    let [task, setTask] = useState({});
-    let [disabled, setDisabled] = useState(false)
-    let { register, handleSubmit, watch, formState: { errors }, reset } = useForm({ mode: 'onChange' })
+    const dispatch = useDispatch();
+    const { error, status } = useSelector(state => state.todo)
+    const { room } = useSelector(state => state.room)
+    const [openTaskAdd, setOpenTaskAdd] = useState(false)
+    const [tags, setTags] = useState([])
+    const [task, setTask] = useState({});
+    const [disabled, setDisabled] = useState(false)
+    const { register, handleSubmit, watch, formState: { errors }, reset } = useForm({ mode: 'onChange' })
 
 
     useEffect(() => {
@@ -26,16 +25,16 @@ export default function TaskAddForm() {
         tags.length >= 5 ? setDisabled(true) : setDisabled(false)
     }, [tags]);
 
-    let addTag = (tag) => {
+    const addTag = (tag) => {
         const newTag = { tag, id: Date.now() };
         setTags([...tags, newTag])
         reset({ tag: ' ' })
     }
 
-    let removeTag = (e) => {
+    const removeTag = (e) => {
         setTags(tags.filter((tag) => tag.id !== e))
     }
-    let hanldeTask = async (task) => {
+    const hanldeTask = async (task) => {
         if (room) {
             let taskData = { text: task.text, roomId: room._id, tags }
             await dispatch(submitTask(taskData));
@@ -51,35 +50,32 @@ export default function TaskAddForm() {
         <>
             <h2 className='form-page__modal-open ' onClick={() => setOpenTaskAdd(true)}>Создать</h2>
             <Modal open={openTaskAdd} setOpen={setOpenTaskAdd} status={status}>
-                <div className='form'>
-                    <h3 className='form__title'>Создать задачу</h3>
-                    <form className='form__form' onSubmit={handleSubmit(hanldeTask)} >
-                        <TextField sx={{ marginBottom: '20px' }} label='Текст' variant="outlined" autoComplete='off'
-                            helperText={errors?.text?.message}
-                            error={Boolean(errors.text?.message)}
-                            {...register('text', {
-                                required: 'Напшите текст',
-                                pattern: {
-                                    value: /^(?!\s+$).+$/,
-                                    message: 'Недопустимый текст',
-                                },
-                            })}
-                        />
-                        <TextField sx={{ marginBottom: '20px' }} label='Тэг' variant="outlined" autoComplete='off'
-                            helperText={errors?.tag?.message}
-                            error={Boolean(errors.tag?.message)}
-                            {...register('tag', {
-                                pattern: {
-                                    value: /^(?!\s+$).+$/,
-                                    message: 'Недопустимый текст',
-                                },
-                            })}
-                        />
-                        <Tags tags={tags} removeTag={removeTag} watch={watch} addTag={addTag} disabled={disabled} />
-                        <SubmitButton status={status} text={'Добавить'} />
-                        <FormErrors error={error} />
-                    </form>
-                </div >
+                <Form title='Создать задачу' submit={handleSubmit(hanldeTask)}>
+                    <TextField sx={{ marginBottom: '20px' }} label='Текст' variant="outlined" autoComplete='off'
+                        helperText={errors?.text?.message}
+                        error={Boolean(errors.text?.message)}
+                        {...register('text', {
+                            required: 'Напшите текст',
+                            pattern: {
+                                value: /^(?!\s+$).+$/,
+                                message: 'Недопустимый текст',
+                            },
+                        })}
+                    />
+                    <TextField sx={{ marginBottom: '20px' }} label='Тэг' variant="outlined" autoComplete='off'
+                        helperText={errors?.tag?.message}
+                        error={Boolean(errors.tag?.message)}
+                        {...register('tag', {
+                            pattern: {
+                                value: /^(?!\s+$).+$/,
+                                message: 'Недопустимый текст',
+                            },
+                        })}
+                    />
+                    <Tags tags={tags} removeTag={removeTag} watch={watch} addTag={addTag} disabled={disabled} />
+                    <SubmitButton status={status} text={'Добавить'} />
+                    <FormErrors error={error} />
+                </Form>
             </Modal >
         </>
     )
