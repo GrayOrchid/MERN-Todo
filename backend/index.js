@@ -25,6 +25,11 @@ app.get('/', (req, res) => {
     res.send('work')
 })
 
+app.get('/health', (req, res) => {
+    res.status(200).send('Server is healthy');
+});
+
+
 app.post('/auth/login', userLogin, UserControllers.login);
 app.post('/auth/register', registerValidation, UserControllers.register)
 app.get('/auth/me', checkAuth, UserControllers.getMe);
@@ -54,5 +59,5 @@ app.listen(4444, (err) => {
     if (err) {
         console.log(err);
     }
-    return console.log('O111K');
+    return console.log('OK');
 })
