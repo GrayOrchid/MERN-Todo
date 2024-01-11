@@ -30,7 +30,7 @@ export default function RoutesComponent() {
 
     return (
         <AnimatePresence>
-            <Routes >
+            <Routes basename='/'>
                 <Route path="/" element={<HomePage />} />
                 <Route path="/task/:_id" element={<TaskPage />} />
                 <Route path="/room/:name" element={<RoomPage />} />

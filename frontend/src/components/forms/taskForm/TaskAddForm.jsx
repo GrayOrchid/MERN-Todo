@@ -19,16 +19,18 @@ export default function TaskAddForm() {
     const [disabled, setDisabled] = useState(false)
     const { register, handleSubmit, watch, formState: { errors }, reset } = useForm({ mode: 'onChange' })
 
-
     useEffect(() => {
         setTask({ ...task, tags: tags });
         tags.length >= 5 ? setDisabled(true) : setDisabled(false)
     }, [tags]);
 
+
     const addTag = (tag) => {
-        const newTag = { tag, id: Date.now() };
-        setTags([...tags, newTag])
-        reset({ tag: ' ' })
+        if (tag.trim() !== '') {
+            const newTag = { tag, id: Date.now() };
+            setTags([...tags, newTag])
+            reset({ tag: ' ' });
+        }
     }
 
     const removeTag = (e) => {
@@ -65,12 +67,7 @@ export default function TaskAddForm() {
                     <TextField sx={{ marginBottom: '20px' }} label='Тэг' variant="outlined" autoComplete='off'
                         helperText={errors?.tag?.message}
                         error={Boolean(errors.tag?.message)}
-                        {...register('tag', {
-                            pattern: {
-                                value: /^(?!\s+$).+$/,
-                                message: 'Недопустимый текст',
-                            },
-                        })}
+                        {...register('tag')}
                     />
                     <Tags tags={tags} removeTag={removeTag} watch={watch} addTag={addTag} disabled={disabled} />
                     <SubmitButton status={status} text={'Добавить'} />

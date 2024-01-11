@@ -9,6 +9,7 @@ import * as SubTaskController from './controllers/SubTaskController.js'
 import * as CommentsController from './controllers/CommentsController.js'
 import * as RoomController from './controllers/RoomController.js'
 import * as DragTaskController from './controllers/DragTaskController.js'
+
 mongoose
     .connect('mongodb+srv://moonb7213:HNPQC68WSdRjqaFE@cluster0.lfphce4.mongodb.net/?retryWrites=true&w=majority')
     .then(() => console.log('DB ok'))
