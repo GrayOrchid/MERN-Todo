@@ -9,6 +9,7 @@
   flex: 1;
   border-radius: 5px;
   padding: 20px;
+  border:1px red solid
 }
 
 .boards__title {
