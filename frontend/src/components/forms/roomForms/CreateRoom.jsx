@@ -1,10 +1,10 @@
 import React, { useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
-import { addOption, createRoom } from '../../../redux/reducers/roomSlicer';
-import SubmitButton from '../../submitButton/SubmitButton';
-import { Link, useNavigate } from 'react-router-dom';
 import { useForm } from 'react-hook-form';
+import { Link, useNavigate } from 'react-router-dom';
 import TextField from '@mui/material/TextField';
+import SubmitButton from '../../submitButton/SubmitButton';
+import { addOption, createRoom } from '../../../redux/reducers/roomSlicer';
 import Form from '../Form';
 
 export default function CreateRoom() {
@@ -39,7 +39,7 @@ export default function CreateRoom() {
                     },
                     maxLength: {
                         value: 20,
-                        message: 'Максимальное значеие 15',
+                        message: 'Максимальное значение 15',
                     },
                 })}
                 autoComplete="off"

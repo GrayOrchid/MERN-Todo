@@ -5,14 +5,8 @@ import './boards.css';
 import { dragTask } from '../../redux/reducers/roomSlicer';
 import Tasks from '../task/Tasks';
 
-function Boards() {
+function Board({ title, listName, tasks, name, roomId }) {
     const dispatch = useDispatch();
-    const { room } = useSelector((state) => state.room);
-    const startTasks = room?.start;
-    const nowTasks = room?.now;
-    const finallyTasks = room?.finally;
-    const roomId = room?._id;
-    const name = room?.name;
 
     const onDragEnd = (result) => {
         const { source, destination, draggableId } = result;
@@ -22,21 +16,25 @@ function Boards() {
     };
 
     return (
-        <div className="boards">
+        <div className="boards__board">
+            <h1 className='boards__title'>{title}</h1>
             <DragDropContext onDragEnd={onDragEnd}>
-                <div className="boards__board">
-                    <h1 className='boards__title'>Start</h1>
-                    <Tasks listName="start" name={name} todos={startTasks} roomId={roomId} />
-                </div>
-                <div className="boards__board">
-                    <h1 className='boards__title'>Now</h1>
-                    <Tasks listName="now" name={name} todos={nowTasks} roomId={roomId} />
-                </div>
-                <div className="boards__board">
-                    <h1 className='boards__title'>Finally</h1>
-                    <Tasks listName="finally" name={name} todos={finallyTasks} roomId={roomId} />
-                </div>
+                <Tasks listName={listName} name={name} todos={tasks} roomId={roomId} />
             </DragDropContext>
+        </div>
+    );
+}
+
+function Boards() {
+    const { room } = useSelector((state) => state.room);
+    const roomId = room?._id;
+    const name = room?.name;
+
+    return (
+        <div className="boards">
+            <Board title="Start" listName="start" tasks={room.start} name={name} roomId={roomId} />
+            <Board title="Now" listName="now" tasks={room.now} name={name} roomId={roomId} />
+            <Board title="Finally" listName="finally" tasks={room.finally} name={name} roomId={roomId} />
         </div>
     );
 }

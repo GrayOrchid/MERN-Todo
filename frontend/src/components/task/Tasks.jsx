@@ -2,9 +2,8 @@ import React from 'react';
 import { Droppable } from 'react-beautiful-dnd'
 import './tasks.css';
 import Task from './Task';
+
 export default function Tasks({ todos, listName, name }) {
-
-
 
     return (
         <Droppable droppableId={listName}>

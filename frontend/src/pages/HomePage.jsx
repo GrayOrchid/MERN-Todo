@@ -5,9 +5,10 @@ import { Link } from 'react-router-dom'
 import { useSelector } from 'react-redux'
 import { selectIsAuth } from '../redux/reducers/authReducer'
 export default function HomePage() {
-    let isAuth = useSelector(selectIsAuth)
-    return (
 
+    const isAuth = useSelector(selectIsAuth)
+
+    return (
         <AnimatePage>
             <div className='page homepage'>
                 <div className="homepage__text">

@@ -161,3 +161,11 @@
 .form-page__form-link{
     margin-top:10px;
 }
+.modal-open{
+    margin:1rem;
+    cursor:pointer;
+    transition:.2s;
+}
+.modal-open:hover{
+    color:#50BEDB;
+}

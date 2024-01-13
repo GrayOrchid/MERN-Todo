@@ -9,17 +9,17 @@ import { useNavigate, useParams } from 'react-router-dom'
 
 export default function RoomPage() {
 
-    let { room, tag } = useSelector(state => state.room)
-    let { name } = useParams()
+    const { room, tag } = useSelector(state => state.room)
+    const { name } = useParams()
 
-    let navigate = useNavigate()
-    let dispatch = useDispatch()
+    const navigate = useNavigate()
+    const dispatch = useDispatch()
 
     useEffect(() => {
         dispatch(getRoom(name))
     }, [])
 
-    let clearTagsFilter = () => {
+    const clearTagsFilter = () => {
         dispatch(getRoom(room.name))
         dispatch(removeTag())
     }

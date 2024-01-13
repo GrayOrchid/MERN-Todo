@@ -2,17 +2,17 @@ import React, { useState } from 'react';
 import { IoCaretDownSharp } from 'react-icons/io5';
 import { FaRegCopy } from 'react-icons/fa';
 import { MdOutlineDelete } from 'react-icons/md';
-import { AnimatePresence, motion } from 'framer-motion'
+import { AnimatePresence, motion } from 'framer-motion';
 
 export default function Select({ storedOptions, setStoredOptions, setSelectedRoom }) {
-    let [isOpen, setIsOpen] = React.useState(false);
+    const [isOpen, setIsOpen] = useState(false);
 
-    let copyToClipboard = (option) => {
+    const copyToClipboard = (option) => {
         navigator.clipboard.writeText(option);
     };
 
-    let removeOption = (option) => {
-        let newOptions = storedOptions.filter((storedOption) => storedOption !== option);
+    const removeOption = (option) => {
+        const newOptions = storedOptions.filter((storedOption) => storedOption !== option);
         setStoredOptions(newOptions);
         window.localStorage.setItem('options', JSON.stringify(newOptions));
     };
@@ -24,13 +24,13 @@ export default function Select({ storedOptions, setStoredOptions, setSelectedRoo
             </div>
             <AnimatePresence>
                 {isOpen && (
-                    <motion.div className='dropdown__content'
+                    <motion.div
+                        className='dropdown__content'
                         initial={{ opacity: 0, y: -100 }}
-                        animate={{ opacity: 1, y: 0, }}
+                        animate={{ opacity: 1, y: 0 }}
                         transition={{
-                            duration: .2,
+                            duration: 0.2,
                             damping: 20
-
                         }}
                         exit={{ opacity: 0, y: -100 }}
                     >

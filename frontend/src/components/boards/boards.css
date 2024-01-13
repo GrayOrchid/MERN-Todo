@@ -20,6 +20,7 @@
   .boards {
     width: 95%;
   }
+  
   .boards__board {
     flex: initial;
     width: 100%;
