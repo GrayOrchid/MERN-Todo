@@ -5,7 +5,7 @@ import axios from "../../axios";
 
 export const submitSubtask = createAsyncThunk('submitSubtask', async (subtaskData, { dispatch, rejectWithValue }) => {
     try {
-        const { data } = await axios.post('/subtask', subtaskData.subtaskData)
+        const { data } = await axios.post('/subtask', subtaskData)
         return data
     } catch (error) {
         return rejectWithValue(error.response.data)

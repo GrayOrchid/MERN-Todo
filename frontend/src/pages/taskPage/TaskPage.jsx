@@ -5,9 +5,7 @@ import SubtaskForm from '../../components/forms/subtaskForm/SubtaskForm';
 import TaskBoard from '../../components/taskBoard/TaskBoard';
 
 export default function TaskPage() {
-
-    const { _id } = useParams()
-
+    let { _id } = useParams()
     return (
         <div className='task-page'>
             <Link to='/'>BACK</Link>

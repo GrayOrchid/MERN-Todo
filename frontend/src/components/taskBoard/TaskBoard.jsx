@@ -4,10 +4,9 @@ import Subtasks from '../subtasks/Subtasks';
 import { getOne } from '../../redux/reducers/todoSlicer';
 import { deleteSubtask } from '../../redux/reducers/subtaskSlicer';
 import './taskBoard.css'
-
 export default function TaskBoard({ _id }) {
-    const { todo } = useSelector((state) => state.todo)
-    const dispatch = useDispatch()
+    let { todo } = useSelector((state) => state.todo)
+    let dispatch = useDispatch()
 
     useEffect(() => {
         dispatch(getOne(_id))

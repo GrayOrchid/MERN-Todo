@@ -7,7 +7,7 @@ export default function Modal({ children, open, setOpen, status }) {
         if (status === 'resolved' && !open) {
             setOpen(false);
         }
-    }, [status]);
+    }, [status, open, setOpen]);
 
     const handleClose = () => {
         setOpen(false);

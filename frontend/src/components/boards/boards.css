@@ -9,7 +9,6 @@
   flex: 1;
   border-radius: 5px;
   padding: 20px;
-  border:1px red solid
 }
 
 .boards__title {
@@ -21,7 +20,6 @@
   .boards {
     width: 95%;
   }
-  
   .boards__board {
     flex: initial;
     width: 100%;

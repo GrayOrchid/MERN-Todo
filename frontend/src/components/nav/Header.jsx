@@ -1,17 +1,17 @@
 import React, { useEffect } from 'react'
-import './header.css'
 import { useDispatch, useSelector } from 'react-redux';
+import './header.css'
 import { FaReact } from "react-icons/fa";
 import { getMe, selectIsAuth } from '../../redux/reducers/authReducer';
 import { Link } from 'react-router-dom';
 import NavAuth from './NavAuth';
+// import Title from '../title/Title';
 import User from './User';
-
 export default function Header() {
 
-    const dispatch = useDispatch()
-    const isAuth = useSelector(selectIsAuth)
-    const token = window.localStorage.getItem('token')
+    let dispatch = useDispatch()
+    let isAuth = useSelector(selectIsAuth)
+    let token = window.localStorage.getItem('token')
 
     useEffect(() => {
         if (token) {

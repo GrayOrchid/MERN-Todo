@@ -9,7 +9,7 @@ export default function User() {
     const dispatch = useDispatch();
     const user = useSelector((state) => state.user.data);
     const [anchorEl, setAnchorEl] = useState(null);
-    const navigate = useNavigate()
+    let navigate = useNavigate()
     const handleOpenMenu = (event) => {
         setAnchorEl(event.currentTarget);
     };

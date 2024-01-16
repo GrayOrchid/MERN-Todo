@@ -12,6 +12,7 @@ export const getOne = createAsyncThunk('todos/getOne', async (id, { rejectWithVa
     }
 })
 export const submitTask = createAsyncThunk('todos/submitTask', async (task, { rejectWithValue }) => {
+    console.log(task);
     try {
         const { data } = await axios.post('/tasks', task)
         return data
@@ -23,7 +24,6 @@ export const submitTask = createAsyncThunk('todos/submitTask', async (task, { re
 export const deleteTodo = createAsyncThunk('todos/deleteTodos', async (id, { rejectWithValue }) => {
     try {
         axios.delete(`tasks/${id}`)
-        console.log(`tasks/${id}`);
     } catch (error) {
         return rejectWithValue(error)
     }
@@ -57,7 +57,6 @@ const todoSlicer = createSlice({
         [deleteTodo.fulfilled]: (state, action) => {
             state.status = 'resolved'
             state.todo = action.payload
-            console.log('deleted');
         },
         [deleteTodo.rejected]: (state, action) => {
             state.status = 'rejected'

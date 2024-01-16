@@ -1,54 +1,34 @@
-import React, { useState } from 'react';
+import React, { useState } from 'react'
 import { useDispatch, useSelector } from 'react-redux';
 import { getOne } from '../../../redux/reducers/todoSlicer';
 import { submitSubtask } from '../../../redux/reducers/subtaskSlicer';
 import Modal from '../../modal/Modal';
-import Form from '../Form';
-import { useForm } from 'react-hook-form';
-import { TextField } from '@mui/material';
-import SubmitButton from '../../submitButton/SubmitButton';
 
 export default function SubtaskForm({ _id }) {
-    const { register, handleSubmit, formState: { errors } } = useForm({ mode: 'onChange' });
-    const { error, status } = useSelector(state => state.subtask);
-
-    const [openSubtask, setOpenSubtask] = useState(false);
-
-    const dispatch = useDispatch();
-
-    const handleSubmitSubtaskData = async (subtask) => {
-        const subtaskData = { text: subtask.text, taskId: _id };
-        await dispatch(submitSubtask({ subtaskData }));
-        await dispatch(getOne(_id));
+    let { error } = useSelector(state => state.subtask)
+    let [subtaskData, setSubtaskData] = useState({ taskId: _id })
+    let [openSubtask, setOpenSubtask] = useState(false)
+    let dispatch = useDispatch()
+    const handleSubmitSubtaskData = async (e) => {
+        e.preventDefault();
+        await dispatch(submitSubtask(subtaskData))
+        await dispatch(getOne(_id))
 
         if (!error) {
-            setOpenSubtask(false);
+            setSubtaskData({ ...subtaskData, text: ' ' })
+            setOpenSubtask(false)
         }
     };
-
     return (
-        <>
-            <h2 className='modal-open' onClick={() => setOpenSubtask(true)}>Добавить подзадачу</h2>
+        <div className='form'>
+            <h2 className='form__modal-open' onClick={() => setOpenSubtask(true)}>Добавить подздачу</h2>
             <Modal open={openSubtask} setOpen={setOpenSubtask}>
-                <Form title='Добавить подзадачу' submit={handleSubmit(handleSubmitSubtaskData)}>
-                    <TextField
-                        sx={{ marginBottom: '20px' }}
-                        label='Текст'
-                        variant="outlined"
-                        autoComplete='off'
-                        helperText={errors?.text?.message}
-                        error={Boolean(errors.text?.message)}
-                        {...register('text', {
-                            required: 'Напишите текст',
-                            pattern: {
-                                value: /^(?!\s+$).+$/,
-                                message: 'Недопустимый текст',
-                            },
-                        })}
-                    />
-                    <SubmitButton status={status} text={'Добавить'} />
-                </Form>
+                <form className='form__container' onSubmit={handleSubmitSubtaskData}>
+                    <h3 className='form__name'>Добавить подздачу</h3>
+                    <input className='form__input' placeholder='текст' value={subtaskData.text} type="text" onChange={(e) => setSubtaskData({ ...subtaskData, text: e.target.value })} />
+                    <button className='form__btn' type="submit">Добавить</button>
+                </form>
             </Modal>
-        </>
-    );
+        </div>
+    )
 }

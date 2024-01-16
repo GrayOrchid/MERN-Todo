@@ -1,21 +1,22 @@
 import React from 'react';
 import { Droppable } from 'react-beautiful-dnd';
 import './tasks.css';
-import Task from './Task';
-
+import DragItem from './DragItem';
+import { motion } from 'framer-motion'
 export default function Tasks({ todos, listName, name }) {
-    console.log(listName);
+
     return (
         <Droppable droppableId={listName}>
             {(provided, snapshot) => (
-                <div className="todos__list"
+                <motion.div className="todos__list"
+                    layout
                     ref={provided.innerRef}
                     {...provided.droppableProps} >
                     {provided.placeholder}
                     {todos?.tasks?.map((task, index) => (
-                        <Task task={task} key={task._id} index={index} name={name} snapshot={snapshot} />
+                        <DragItem task={task} key={task._id} index={index} name={name} snapshot={snapshot} />
                     ))}
-                </div>
+                </motion.div>
             )}
         </Droppable>
     );
