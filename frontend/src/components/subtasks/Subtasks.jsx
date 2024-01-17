@@ -1,4 +1,3 @@
-import './subtasks.css'
 import React from 'react'
 import { MdModeEdit, MdOutlineDelete } from "react-icons/md";
 

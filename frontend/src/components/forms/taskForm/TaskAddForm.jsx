@@ -50,7 +50,7 @@ export default function TaskAddForm() {
 
     return (
         <>
-            <h2 className='form-page__modal-open ' onClick={() => setOpenTaskAdd(true)}>Создать</h2>
+            <h2 className='form__modal-open' onClick={() => setOpenTaskAdd(true)}>Создать</h2>
             <Modal open={openTaskAdd} setOpen={setOpenTaskAdd} status={status}>
                 <Form title='Создать задачу' submit={handleSubmit(hanldeTask)}>
                     <TextField sx={{ marginBottom: '20px' }} label='Текст' variant="outlined" autoComplete='off'

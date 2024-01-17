@@ -1,10 +1,10 @@
 import React, { useEffect } from 'react'
 import { useDispatch, useSelector } from 'react-redux';
-import Subtasks from '../subtasks/Subtasks';
+import Subtasks from './Subtasks';
 import { getOne } from '../../redux/reducers/todoSlicer';
 import { deleteSubtask } from '../../redux/reducers/subtaskSlicer';
-import './taskBoard.css'
-export default function TaskBoard({ _id }) {
+import './subtasks.css'
+export default function SubTaskBoard({ _id }) {
     let { todo } = useSelector((state) => state.todo)
     let dispatch = useDispatch()
 

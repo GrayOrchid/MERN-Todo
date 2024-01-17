@@ -25,26 +25,21 @@ export default function DragItem({ index, task, name }) {
     return (
         <Draggable index={index} key={_id} draggableId={_id.toString()}>
             {(provided) => (
-                <>
-                    <AnimatePresence>
-                        {isDeleted ? null : (
-                            <motion.div
-                                className='todos__task'
-                                initial={{ opacity: 0 }}
-                                animate={{ opacity: 100 }}
-                                exit={{ opacity: 0 }}
 
-                                {...provided.draggableProps}
-                                {...provided.dragHandleProps}
-                                ref={provided.innerRef}
-                            >
-                                {provided.placeholder}
-                                <Task task={task} />
-                                <TaskBtns task={task} handleDelete={handleDelete} tagsFilter={tagsFilter} />
-                            </motion.div>
-                        )}
-                    </AnimatePresence>
-                </>
+                <motion.div
+                    className={isDeleted ? 'todos__task deleted' : 'todos__task'}
+                    initial={{ opacity: 0 }}
+                    animate={{ opacity: 100 }}
+                    exit={{ opacity: 0 }}
+                    {...provided.draggableProps}
+                    {...provided.dragHandleProps}
+                    ref={provided.innerRef}
+                >
+                    {provided.placeholder}
+                    <Task task={task} />
+                    <TaskBtns task={task} handleDelete={handleDelete} tagsFilter={tagsFilter} />
+                </motion.div>
+
             )}
         </Draggable>
     );
