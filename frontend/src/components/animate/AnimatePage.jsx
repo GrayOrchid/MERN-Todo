@@ -1,13 +1,19 @@
 import React from 'react'
-import { motion } from 'framer-motion'
+import { AnimatePresence, motion } from 'framer-motion'
+
+
 export default function AnimatePage({ children }) {
+
     return (
-        <motion.div
-            initial={{ opacity: 0, x: 100 }}
-            animate={{ opacity: 1000, x: 0 }}
-            exit={{ opacity: 0, x: -100 }}
-        >
-            {children}
-        </motion.div>
+        <AnimatePresence>
+            <motion.div
+                initial={{ opacity: 0, x: 100 }}
+                animate={{ opacity: 100, x: 0 }}
+                exit={{ opacity: 0, x: -100 }}
+                transition={{ duration: .2 }}
+            >
+                {children}
+            </motion.div>
+        </AnimatePresence>
     )
 }

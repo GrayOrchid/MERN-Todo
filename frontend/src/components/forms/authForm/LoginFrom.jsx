@@ -4,7 +4,7 @@ import { userLogin } from '../../../redux/reducers/authReducer';
 import { useForm } from 'react-hook-form';
 import TextField from '@mui/material/TextField';
 import FormErrors from '../FormErrors';
-import SubmitButton from '../../submitButton/SubmitButton';
+import SubmitButton from '../../UiComponents/SubmitButton';
 import { Link, useNavigate } from 'react-router-dom';
 import Form from '../Form';
 

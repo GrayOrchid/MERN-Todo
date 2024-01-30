@@ -15,8 +15,8 @@
   background:transparent;
   box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
   transition:.2s;
-  max-height:500px;
 }
+
 .todos__task:hover{
   box-shadow: 0 4px 1px rgba(0, 0, 0, 0.4);
 }
@@ -43,31 +43,17 @@
 }
 .todos__task-btn{
   padding:5px;
+  font-size:25px;
+  transition:.2s
 }
-.todos__task-delete-btns{
-  border:1px black solid;
-  border-radius:10px;
-  display:flex;
-  padding:15px;
-  justify-content:space-around;
+.todos__task-btn:hover{
+  transform:scale(1.5) 
 }
+
 .__dragactive{
   transform:scale(1.01) 
 }
-.todos__task-tags{
-  display:flex;
-  flex-wrap:wrap;
-  margin-top:5px;
-  gap:5px 5px;
-}
-.todos__task-tag{
-  font-size:16px;
-  color:blue;
-  transition:.2s 
-}
-.todos__task-tag:hover{
-  color:red;
-}
+
 .todos__task-text{
   max-height:500px;
   width:90%;
@@ -87,7 +73,4 @@
   .todos__task-tags{
       width:95%;
  }
-}
-.deleted{
-  display:none;
 }

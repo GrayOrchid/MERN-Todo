@@ -1,11 +1,12 @@
 import React, { useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { addOption, createRoom } from '../../../redux/reducers/roomSlicer';
-import SubmitButton from '../../submitButton/SubmitButton';
+import SubmitButton from '../../UiComponents/SubmitButton';
 import { Link, useNavigate } from 'react-router-dom';
 import { useForm } from 'react-hook-form';
 import TextField from '@mui/material/TextField';
 import Form from '../Form';
+import { RoomValidation } from '../../../utils/RulesForClientValidation';
 
 export default function CreateRoom() {
     const navigate = useNavigate();
@@ -31,17 +32,7 @@ export default function CreateRoom() {
                 error={Boolean(errors.name?.message)}
                 label="Введите название"
                 variant="outlined"
-                {...register('name', {
-                    required: 'Введите название',
-                    pattern: {
-                        value: /^(?!\s+$).+$/,
-                        message: 'Недопустимое название',
-                    },
-                    maxLength: {
-                        value: 20,
-                        message: 'Максимальное значеие 15',
-                    },
-                })}
+                {...register('name', RoomValidation)}
                 autoComplete="off"
                 helperText={errors?.name?.message}
             />

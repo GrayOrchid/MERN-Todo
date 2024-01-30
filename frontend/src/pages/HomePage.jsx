@@ -4,6 +4,7 @@ import AnimatePage from '../components/animate/AnimatePage'
 import { Link } from 'react-router-dom'
 import { useSelector } from 'react-redux'
 import { selectIsAuth } from '../redux/reducers/authReducer'
+
 export default function HomePage() {
     let isAuth = useSelector(selectIsAuth)
     return (

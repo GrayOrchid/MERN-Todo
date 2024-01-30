@@ -4,7 +4,6 @@ import './tasks.css';
 import DragItem from './DragItem';
 import { motion } from 'framer-motion'
 export default function Tasks({ todos, listName, name }) {
-
     return (
         <Droppable droppableId={listName}>
             {(provided, snapshot) => (

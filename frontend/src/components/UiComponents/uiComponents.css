@@ -1,0 +1,22 @@
+.submit-btn{
+    padding:10px;
+    min-width:50px;
+    max-width:100px;
+    background:none;
+    border:2px solid #0e76ed;
+    color:#0e76ed;
+    cursor:pointer;
+    font-weight:bold;
+    }
+
+.task-tags{
+        display:flex;
+        flex-wrap:wrap;
+        margin-top:5px;
+        gap:5px 5px;
+    }
+
+.task-tag{
+        font-size:16px;
+        color:blue;
+    }

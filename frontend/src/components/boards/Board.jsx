@@ -1,5 +1,4 @@
 import Tasks from '../task/Tasks';
-
 export default function Board({ title, listName, tasks, name, roomId }) {
 
     return (

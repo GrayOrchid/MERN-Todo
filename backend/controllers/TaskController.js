@@ -1,7 +1,5 @@
 import TaskModel from '../models/Task.js'
 import RoomModel from '../models/Room.js'
-import { validationResult } from 'express-validator'
-
 
 export const getAll = async (req, res) => {
     try {
@@ -17,7 +15,6 @@ export const getOne = async (req, res) => {
     try {
         const task = await TaskModel.findById(taskId)
             .populate('subTasks')
-            .populate('comments')
         res.json(task);
     } catch (error) {
         console.error(error);
@@ -78,7 +75,7 @@ export const update = async (req, res) => {
         }, {
             title: req.body.title,
             text: req.body.text,
-            tags: req.body.tasktags,
+            tags: req.body.tags,
             completed: req.body.completed
         })
 

@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { getOne } from '../../../redux/reducers/todoSlicer';
 import { submitSubtask } from '../../../redux/reducers/subtaskSlicer';
@@ -6,11 +6,13 @@ import Modal from '../../modal/Modal';
 import Form from '../Form';
 import { useForm } from 'react-hook-form';
 import { TextField } from '@mui/material';
-import SubmitButton from '../../submitButton/SubmitButton';
+import SubmitButton from '../../UiComponents/SubmitButton';
+import { ToodooValidation } from '../../../utils/RulesForClientValidation';
 
 export default function SubtaskForm({ _id }) {
+
     const { register, handleSubmit, formState: { errors } } = useForm({ mode: 'onChange' });
-    const { error, status } = useSelector(state => state.subtask);
+    const { status } = useSelector(state => state.subtask);
 
     const [openSubtask, setOpenSubtask] = useState(false);
 
@@ -20,11 +22,13 @@ export default function SubtaskForm({ _id }) {
         const subtaskData = { text: subtask.text, taskId: _id };
         await dispatch(submitSubtask({ subtaskData }));
         await dispatch(getOne(_id));
+    }
 
-        if (!error) {
+    useEffect(() => {
+        if (status === 'resolved') {
             setOpenSubtask(false);
         }
-    }
+    }, [status])
 
     return (
         <>
@@ -38,13 +42,7 @@ export default function SubtaskForm({ _id }) {
                         autoComplete='off'
                         helperText={errors?.text?.message}
                         error={Boolean(errors.text?.message)}
-                        {...register('text', {
-                            required: 'Напишите текст',
-                            pattern: {
-                                value: /^(?!\s+$).+$/,
-                                message: 'Недопустимый текст',
-                            },
-                        })}
+                        {...register('text', ToodooValidation)}
                     />
                     <SubmitButton status={status} text={'Добавить'} />
                 </Form>

@@ -52,33 +52,5 @@ export const getRoom = async (req, res) => {
     }
 }
 
-export const getRoomTasksByTag = async (req, res) => {
-    try {
-        const { name, tag } = req.params;
-        const room = await RoomModel.findOne({ name: name })
-            .populate({
-                path: 'start.tasks',
-                match: { tags: { $elemMatch: { tag: tag } } }
-            })
-            .populate({
-                path: 'now.tasks',
-                match: { tags: { $elemMatch: { tag: tag } } }
-            })
-            .populate({
-                path: 'finally.tasks',
-                match: { tags: { $elemMatch: { tag: tag } } }
-            });
-        if (room) {
-            res.json(room);
-        } else {
-            res.status(404).json({
-                message: 'Комната не найдена.',
-            });
-        }
 
-    } catch (error) {
-        res.status(500).json({
-            message: 'Не удалось найти комнату или задачи по тегу.',
-        });
-    }
-}
+

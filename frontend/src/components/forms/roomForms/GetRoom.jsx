@@ -3,7 +3,7 @@ import '../../forms/form.css';
 import { useDispatch, useSelector } from 'react-redux';
 import { getRoom } from '../../../redux/reducers/roomSlicer';
 import Select from './Select';
-import SubmitButton from '../../submitButton/SubmitButton';
+import SubmitButton from '../../UiComponents/SubmitButton';
 import { useForm } from 'react-hook-form';
 import { Link, useNavigate } from 'react-router-dom';
 import { TextField } from '@mui/material';

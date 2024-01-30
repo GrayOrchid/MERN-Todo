@@ -14,21 +14,11 @@ export const createRoom = createAsyncThunk('createRoom', async (roomData, { disp
     }
 })
 
-export const filterByTags = createAsyncThunk('filterBytags', async (tagData, { rejectWithValue }) => {
-    let { tag, roomName } = tagData;
-    try {
-        const { data } = await axios.get(`room/${roomName}/tasks/${tag}`)
-        return data
-    } catch (error) {
-        return rejectWithValue(error.response.data)
-    }
-})
 
 export const getRoom = createAsyncThunk('getRoom', async (roomData, { dispatch, rejectWithValue }) => {
-    console.log(roomData);
     try {
         const { data } = await axios.get(`room/${roomData}`);
-        dispatch(addOption(roomData))
+        dispatch(addOption(roomData));
         return data;
     } catch (error) {
         return rejectWithValue(error.response.data);
@@ -64,6 +54,7 @@ const roomSlicer = createSlice({
             sourceList.tasks.splice(source.index, 1);
             destinationList.tasks.splice(destination.index, 0, taskToMove);
         },
+
         leave: (state) => {
             return {
                 ...state,
@@ -85,12 +76,7 @@ const roomSlicer = createSlice({
             }
             return state
         },
-        removeTag: (state) => {
-            state.tag = null
-        },
-        addTag: (state, action) => {
-            state.tag = action.payload
-        }
+
     },
 
 
@@ -104,18 +90,6 @@ const roomSlicer = createSlice({
             state.room = action.payload;
         },
         [getRoom.rejected]: (state, action) => {
-            state.status = 'rejected'
-            state.error = action.payload
-        },
-        [filterByTags.pending]: (state,) => {
-            state.status = 'loading'
-            state.error = null
-        },
-        [filterByTags.fulfilled]: (state, action) => {
-            state.status = 'resolved';
-            state.room = action.payload;
-        },
-        [filterByTags.rejected]: (state, action) => {
             state.status = 'rejected'
             state.error = action.payload
         },
@@ -134,6 +108,6 @@ const roomSlicer = createSlice({
     }
 })
 
-export const { moveTask, removeTask, leave, addOption, removeTag, addTag } = roomSlicer.actions;
+export const { moveTask, removeTask, leave, addOption } = roomSlicer.actions;
 export default roomSlicer.reducer
 

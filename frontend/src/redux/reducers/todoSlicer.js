@@ -5,14 +5,24 @@ import axios from "../../axios";
 
 export const getOne = createAsyncThunk('todos/getOne', async (id, { rejectWithValue }) => {
     try {
-        const { data } = await axios.get(`/tasks/${id}`)
+        const { data } = await axios.get(`/tasks/${id}`);
         return data
     } catch (error) {
         return rejectWithValue(error.response.data)
     }
 })
+
+export const updateTask = createAsyncThunk('todos/updateTask', async (task, { rejectWithValue }) => {
+    try {
+        const { data } = await axios.patch(`/tasks/${task.id}`, task)
+        return data
+    } catch (error) {
+        return rejectWithValue(error.response.data)
+    }
+})
+
 export const submitTask = createAsyncThunk('todos/submitTask', async (task, { rejectWithValue }) => {
-    console.log(task);
+
     try {
         const { data } = await axios.post('/tasks', task)
         return data
@@ -34,8 +44,10 @@ const todoSlicer = createSlice({
     initialState: {
         todo: {},
         status: null,
+        taskUpdateStatus: null,
         error: null
     },
+
     extraReducers: {
         [submitTask.pending]: (state, action) => {
             state.status = 'loading'
@@ -73,6 +85,19 @@ const todoSlicer = createSlice({
         },
         [getOne.rejected]: (state, action) => {
             state.status = 'rejected'
+            state.error = action.payload
+        },
+
+        [updateTask.pending]: (state) => {
+            state.taskUpdateStatus = 'loading'
+            state.error = null
+        },
+        [updateTask.fulfilled]: (state, action) => {
+            state.taskUpdateStatus = 'resolved'
+            state.todo = action.payload
+        },
+        [updateTask.rejected]: (state, action) => {
+            state.taskUpdateStatus = 'rejected'
             state.error = action.payload
         },
     }

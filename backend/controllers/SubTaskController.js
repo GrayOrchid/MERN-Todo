@@ -25,8 +25,22 @@ export const create = async (req, res) => {
     }
 };
 
+export const getOneSubtask = async (req, res) => {
+    const subtaskId = req.params.id;
+    try {
+        const subtask = await SubTaskModel.findById(subtaskId)
+
+        res.json(subtask);
+    } catch (error) {
+        console.error(error);
+        res.status(500).json({
+            message: 'Не удалось получить задачу',
+        });
+    }
+}
+
 export const remove = async (req, res) => {
-    console.log(req.params.id);
+
     try {
         const subTaskId = req.params.id
 
@@ -41,15 +55,29 @@ export const remove = async (req, res) => {
 }
 
 export const update = async (req, res) => {
+    const subTaskId = req.params.id
+
     try {
-        const subTaskId = req.params.id
 
         await SubTaskModel.updateOne({
             _id: subTaskId
-        }, {
-            title: title,
-            completed: completed
-        })
+        },
+            { text: req.body.text, })
+        res.send("Updated!")
+    } catch (error) {
+        console.log(error);
+    }
+}
+
+
+export const toggleSubtask = async (req, res) => {
+    const subTaskId = req.params.id
+    try {
+        await SubTaskModel.updateOne({
+            _id: subTaskId
+        },
+            { completed: req.body.completed, })
+        res.send("Updated!")
     } catch (error) {
         console.log(error);
     }

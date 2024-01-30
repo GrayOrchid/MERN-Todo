@@ -1,5 +1,5 @@
 import React from 'react';
-import './submitButton.css'
+import './uiComponents.css'
 import { Button } from '@mui/material';
 export default function SubmitButton({ status, text }) {
     return (

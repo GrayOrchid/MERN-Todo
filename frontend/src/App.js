@@ -5,7 +5,7 @@ import { keepServerActive } from './CheckHealth';
 
 
 export default function App() {
-  setInterval(keepServerActive, 1 * 30 * 1000);
+  setInterval(keepServerActive, 10 * 30 * 1000);
 
   return (
     <div className='App'>

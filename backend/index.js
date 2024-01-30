@@ -48,11 +48,12 @@ app.patch('/comments/:id', CommentsController.update)
 
 app.post('/subtask', SubTaskController.create)
 app.delete('/subtask/:id', SubTaskController.remove)
-app.patch('/subtask/:id', SubTaskController.update)
+// app.patch('/subtask/:id', SubTaskController.update)
+app.patch('/subtask/:id', SubTaskController.toggleSubtask)
+app.get('/subtask/:id', SubTaskController.getOneSubtask)
 
 app.post('/room', RoomController.create)
 app.get('/room/:name', RoomController.getRoom);
-app.get('/room/:name/tasks/:tag?', RoomController.getRoomTasksByTag)
 
 app.post('/dragtask', DragTaskController.dragTask)
 

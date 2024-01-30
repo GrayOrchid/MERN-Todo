@@ -30,7 +30,6 @@ export default function Select({ storedOptions, setStoredOptions, setSelectedRoo
                         transition={{
                             duration: .2,
                             damping: 20
-
                         }}
                         exit={{ opacity: 0, y: -100 }}
                     >

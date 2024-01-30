@@ -5,11 +5,14 @@ import { submitTask } from '../../../redux/reducers/todoSlicer';
 import { getRoom } from '../../../redux/reducers/roomSlicer';
 import FormErrors from '../FormErrors';
 import Tags from './Tags';
-import SubmitButton from '../../submitButton/SubmitButton';
+import SubmitButton from '../../UiComponents/SubmitButton';
 import { TextField } from '@mui/material';
 import { useForm } from 'react-hook-form';
 import Form from '../Form';
+import { ToodooValidation } from '../../../utils/RulesForClientValidation';
+
 export default function TaskAddForm() {
+
     const dispatch = useDispatch();
     const { error, status } = useSelector(state => state.todo)
     const { room } = useSelector(state => state.room)
@@ -37,16 +40,20 @@ export default function TaskAddForm() {
         setTags(tags.filter((tag) => tag.id !== e))
     }
     const hanldeTask = async (task) => {
-        if (room) {
-            let taskData = { text: task.text, roomId: room._id, tags }
-            await dispatch(submitTask(taskData));
-            await dispatch(getRoom(room.name));
-            await setTags([])
-        }
-        if (!error) {
-            setOpenTaskAdd(false)
-        }
+        const taskData = { text: task.text, roomId: room._id, tags }
+
+        await dispatch(submitTask(taskData));
+        await dispatch(getRoom(room.name));
+
     }
+
+    useEffect(() => {
+        if (status === 'resolved') {
+            setOpenTaskAdd(false)
+            reset()
+            setTags([])
+        }
+    }, [status])
 
     return (
         <>
@@ -56,15 +63,13 @@ export default function TaskAddForm() {
                     <TextField sx={{ marginBottom: '20px' }} label='Текст' variant="outlined" autoComplete='off'
                         helperText={errors?.text?.message}
                         error={Boolean(errors.text?.message)}
-                        {...register('text', {
-                            required: 'Напшите текст',
-                            pattern: {
-                                value: /^(?!\s+$).+$/,
-                                message: 'Недопустимый текст',
-                            },
-                        })}
+                        {...register('text', ToodooValidation)}
                     />
-                    <TextField sx={{ marginBottom: '20px' }} label='Тэг' variant="outlined" autoComplete='off'
+                    <TextField
+                        sx={{ marginBottom: '20px' }}
+                        label='Тэг'
+                        variant="outlined"
+                        autoComplete='off'
                         helperText={errors?.tag?.message}
                         error={Boolean(errors.tag?.message)}
                         {...register('tag')}

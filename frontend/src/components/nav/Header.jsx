@@ -5,7 +5,6 @@ import { FaReact } from "react-icons/fa";
 import { getMe, selectIsAuth } from '../../redux/reducers/authReducer';
 import { Link } from 'react-router-dom';
 import NavAuth from './NavAuth';
-// import Title from '../title/Title';
 import User from './User';
 export default function Header() {
 

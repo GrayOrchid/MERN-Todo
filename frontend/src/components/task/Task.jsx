@@ -1,23 +1,15 @@
 import React from 'react'
+import TaskTags from '../UiComponents/TaskTags'
 
-export default function Task({ task, tagsFilter }) {
+
+export default function Task({ task }) {
 
     let { tags, text } = task
 
     return (
         <div className='todos__task-text'>
             <h6 className='todos__task-title'>{text}</h6>
-            <div className='todos__task-tags'>
-                {tags.map((tag) => (
-                    <span
-                        key={tag.tag}
-                        className='todos__task-tag'
-                        onClick={() => tagsFilter(tag.tag)}
-                    >
-                        {tag.tag}
-                    </span>
-                ))}
-            </div>
+            <TaskTags tags={tags} />
         </div>
     )
 }
