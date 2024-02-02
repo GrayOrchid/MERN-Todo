@@ -18,7 +18,7 @@ export default function EditTaskForm({ taskId }) {
   const { error, status, taskUpdateStatus, todo } = useSelector(state => state.todo)
   const [disabled, setDisabled] = useState(true)
   const { register, handleSubmit, watch, formState: { errors }, reset, control } = useForm({ mode: 'onChange' })
-  const [tags, setTags] = useState()
+  const [tags, setTags] = useState([])
   const { room } = useSelector(state => state.room)
 
   const dispatch = useDispatch()

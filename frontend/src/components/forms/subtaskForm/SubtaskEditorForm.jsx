@@ -10,7 +10,7 @@ import SubmitButton from '../../UiComponents/SubmitButton';
 import { ToodooValidation } from '../../../utils/RulesForClientValidation';
 import { MdModeEdit } from "react-icons/md";
 
-export default function SubtaskFormEditor({ id }) {
+export default function SubtaskFormEditor({ SubTaskId }) {
     const { handleSubmit, formState: { errors }, reset, control } = useForm({ mode: 'onChange' });
     const { status, subtask, updateSubtaskStatus } = useSelector(state => state.subtask);
     const { todo } = useSelector(state => state.todo)
@@ -20,15 +20,15 @@ export default function SubtaskFormEditor({ id }) {
     const dispatch = useDispatch();
 
     const handleSubmitSubtaskData = async (subtaskFormData) => {
-        const subtaskData = { text: subtaskFormData?.text, id: subtask?._id };
+        const subtaskData = { text: subtaskFormData?.text, id: SubTaskId };
+        console.log(subtaskData);
         await dispatch(updateSubtask({ subtaskData }));
         dispatch(getOne(todo?._id))
-
     }
 
 
     const getCurrentSubtask = async () => {
-        await dispatch(getOneSubtask(id))
+        await dispatch(getOneSubtask(SubTaskId))
         await setOpenSubtaskEditor(true)
     }
 

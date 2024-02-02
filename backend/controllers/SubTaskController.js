@@ -56,13 +56,14 @@ export const remove = async (req, res) => {
 
 export const update = async (req, res) => {
     const subTaskId = req.params.id
-
+    console.log('www');
+    console.log(req.body.text);
     try {
 
         await SubTaskModel.updateOne({
             _id: subTaskId
         },
-            { text: req.body.text, })
+            { text: req.body.text })
         res.send("Updated!")
     } catch (error) {
         console.log(error);

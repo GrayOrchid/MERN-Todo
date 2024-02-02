@@ -29,7 +29,7 @@ export default function TaskAddForm() {
 
 
     const addTag = (tag) => {
-        if (tag.trim() !== '') {
+        if (tags || tag.trim() !== '') {
             const newTag = { tag, id: Date.now() };
             setTags([...tags, newTag])
             reset({ tag: ' ' });

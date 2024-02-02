@@ -48,8 +48,9 @@ app.patch('/comments/:id', CommentsController.update)
 
 app.post('/subtask', SubTaskController.create)
 app.delete('/subtask/:id', SubTaskController.remove)
-// app.patch('/subtask/:id', SubTaskController.update)
-app.patch('/subtask/:id', SubTaskController.toggleSubtask)
+app.patch('/subtask/:id', SubTaskController.update)
+app.patch('/subtaskToggle/:id', SubTaskController.toggleSubtask)
+// РЕШИТЬ ЭТОТ КОНФИЛКТ.
 app.get('/subtask/:id', SubTaskController.getOneSubtask)
 
 app.post('/room', RoomController.create)

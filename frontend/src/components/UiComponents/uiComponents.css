@@ -20,3 +20,26 @@
         font-size:16px;
         color:blue;
     }
+
+
+    .task__btns-inner{
+      display:flex;
+     align-items:center;
+    }
+    
+    .task__btn{
+      padding:10px;
+      transition:.2s 
+    }
+    .__red{
+      color:#BD5045;
+    }
+    .__green{
+      color:green;
+    }
+    .task__btn{
+      transition:.2s
+    }
+    .task__btn:hover{
+      transform:scale(1.5) 
+    }

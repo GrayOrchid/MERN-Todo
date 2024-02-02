@@ -27,28 +27,7 @@
   word-wrap:break-word;
   width:100%;
 }
-.todos__task-btns-inner{
-  display:flex;
-  height:100%;
-}
-.todos__task-btn{
-  padding:10px;
-  transition:.2s 
-}
-.__red{
-  color:#BD5045;
-}
-.__green{
-  color:green;
-}
-.todos__task-btn{
-  padding:5px;
-  font-size:25px;
-  transition:.2s
-}
-.todos__task-btn:hover{
-  transform:scale(1.5) 
-}
+
 
 .__dragactive{
   transform:scale(1.01) 

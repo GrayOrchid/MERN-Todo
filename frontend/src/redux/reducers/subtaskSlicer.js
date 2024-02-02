@@ -34,10 +34,8 @@ export const deleteSubtask = createAsyncThunk('deleteSubtask', async (id, { reje
 export const updateSubtask = createAsyncThunk('subtask/updateSubtask', async (subtask, { rejectWithValue }) => {
     const { text, id } = subtask.subtaskData
 
-    console.log(text, id);
     try {
         const { data } = await axios.patch(`/subtask/${id}`, { text })
-        console.log(data);
         return data
     } catch (error) {
         return rejectWithValue(error.response.data)
@@ -45,11 +43,10 @@ export const updateSubtask = createAsyncThunk('subtask/updateSubtask', async (su
 })
 
 export const toggleSubtask = createAsyncThunk('subtask/toggleSubtask', async (completedSubtask, { rejectWithValue }) => {
-    console.log(completedSubtask);
+
     const { _id, completed } = completedSubtask
     try {
-        const { data } = await axios.patch(`/subtask/${_id}`, { completed })
-        console.log(data);
+        const { data } = await axios.patch(`/subtaskToggle/${_id}`, { completed })
         return data
     } catch (error) {
         return rejectWithValue(error.response.data)
@@ -104,7 +101,6 @@ const subtaskSlicer = createSlice({
             state.updateSubtaskStatus = 'rejected'
             state.error = action.payload
         },
-
 
         [deleteSubtask.pending]: (state) => {
             state.status = 'loading'

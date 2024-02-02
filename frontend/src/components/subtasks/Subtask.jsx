@@ -4,6 +4,7 @@ import { useDispatch } from 'react-redux'
 import { deleteSubtask, getOneSubtask, toggleSubtask } from '../../redux/reducers/subtaskSlicer'
 import { MdOutlineDelete } from "react-icons/md";
 import { AnimatePresence, motion } from 'framer-motion';
+import { TaskBtns } from '../UiComponents/TaskBtns';
 
 export default function Subtask({ subtask }) {
     const { text, _id, completed } = subtask
@@ -15,7 +16,7 @@ export default function Subtask({ subtask }) {
         setIsCompletedSubtask(completed)
     }, [])
 
-    const handleDelete = (id) => {
+    const handleSubtaskDelete = (id) => {
         setIsDeleted(true);
         dispatch(deleteSubtask(id))
     }
@@ -35,11 +36,7 @@ export default function Subtask({ subtask }) {
                     exit={{ opacity: 0, y: 100 }}
                 >
                     <p className={isCompletedSubtask ? 'subtasks__subtask-text __completed' : 'subtasks__subtask-text'}>{text}</p>
-                    <div className='subtasks__subtask-btns'>
-                        <MdOutlineDelete className='subtasks__subtask-btn subtasks__subtask-remove' onClick={() => handleDelete(_id)} />
-                        <SubtaskFormEditor id={_id} />
-                        <button onClick={() => completeSubtask(subtask)}>d</button>
-                    </div>
+                    <TaskBtns handleDelete={handleSubtaskDelete} completeSubtask={completeSubtask} taskData={subtask} type='subtask' />
                 </motion.div>
             )}
         </AnimatePresence>

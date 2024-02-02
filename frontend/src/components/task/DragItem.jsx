@@ -2,17 +2,17 @@ import React, { useState } from 'react';
 import { Draggable } from 'react-beautiful-dnd';
 import { useDispatch } from 'react-redux';
 import { deleteTodo } from '../../redux/reducers/todoSlicer';
-import { TaskBtns } from './TaskBtns';
 import { AnimatePresence, motion } from 'framer-motion'
 import Task from './Task';
+import { TaskBtns } from '../UiComponents/TaskBtns';
 
 export default function DragItem({ index, task, name }) {
     const [isDeleted, setIsDeleted] = useState(false);
     const dispatch = useDispatch();
 
-    const handleDelete = async (task) => {
+    const handleTaskDelete = (task) => {
         setIsDeleted(true);
-        await dispatch(deleteTodo(task._id));
+        dispatch(deleteTodo(task._id));
     };
 
 
@@ -32,7 +32,7 @@ export default function DragItem({ index, task, name }) {
                         >
                             {provided.placeholder}
                             <Task task={task} />
-                            <TaskBtns task={task} handleDelete={handleDelete} />
+                            <TaskBtns taskData={task} type='task' handleDelete={handleTaskDelete} />
                         </motion.div>
                     )}
                 </Draggable>
