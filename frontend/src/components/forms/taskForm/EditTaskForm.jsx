@@ -25,7 +25,8 @@ export default function EditTaskForm({ taskId }) {
 
   useEffect(() => {
     tags?.length >= 5 ? setDisabled(true) : setDisabled(false)
-  }, [tags]);
+    setTags(todo?.tags)
+  }, [tags, openTaskEditor]);
 
   const getCurrentTask = async () => {
     await dispatch(getOne(taskId))
