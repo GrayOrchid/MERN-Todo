@@ -29,7 +29,9 @@
     
     .task__btn{
       padding:10px;
-      transition:.2s 
+      transition:.2s;
+      color:black;
+      font-size:15px;
     }
     .__red{
       color:#BD5045;

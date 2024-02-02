@@ -30,7 +30,9 @@ export default function EditTaskForm({ taskId }) {
   const getCurrentTask = async () => {
     await dispatch(getOne(taskId))
     await setTags(todo?.tags)
-    await setOpenTaskEditor(true)
+    if (todo) {
+      await setOpenTaskEditor(true)
+    }
   }
 
 
