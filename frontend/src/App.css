@@ -5,15 +5,19 @@
     margin:0px;
     padding:0px;
     text-decoration:none;
-    
 }
+
+*::-webkit-scrollbar {
+  width: 0;
+  display:none
+}
+
 a{
   color:black;
 }
-*{
-  margin:0;
-  padding:0
-}
+
+
+
 body{
   font-family: 'Montserrat', sans-serif;
   background:#D1E5E5;
@@ -30,13 +34,3 @@ body{
   padding:0px;
 }
 
-@media  (max-width: 900px){
-  .App{
-    /* width:99%;   */
-  
-  }
-}
-*{
-  margin:0;
-  padding:0
-}
