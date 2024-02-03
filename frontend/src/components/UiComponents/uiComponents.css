@@ -25,23 +25,28 @@
     .task__btns-inner{
       display:flex;
      align-items:center;
+     gap:0 5px;
     }
-    
+
+
     .task__btn{
-      padding:10px;
       transition:.2s;
       color:black;
-      font-size:15px;
+      font-size:25px;
+      cursor:pointer;
     }
-    .__red{
+    .__white:hover{
+      color:white;
+    }
+    .__red:hover{
       color:#BD5045;
     }
-    .__green{
+    .__green:hover{
       color:green;
     }
     .task__btn{
       transition:.2s
     }
     .task__btn:hover{
-      transform:scale(1.5) 
+      transform:scale(2) 
     }

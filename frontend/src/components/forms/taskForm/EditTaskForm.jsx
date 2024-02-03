@@ -66,7 +66,7 @@ export default function EditTaskForm({ taskId }) {
 
   return (
     <>
-      <MdEdit className='todos__task-btn' onClick={() => getCurrentTask()} />
+      <MdEdit className='form__modal-open task__btn' onClick={() => getCurrentTask()} />
       <Modal open={openTaskEditor} setOpen={setOpenTaskEditor} status={status} >
         <Form title='Изменить задачу' submit={handleSubmit(hanldeTask)}>
           <Controller

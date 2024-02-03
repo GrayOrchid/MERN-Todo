@@ -7,7 +7,7 @@ import Form from '../Form';
 import { useForm } from 'react-hook-form';
 import { TextField } from '@mui/material';
 import SubmitButton from '../../UiComponents/SubmitButton';
-import { ToodooValidation } from '../../../utils/RulesForClientValidation';
+import { SubtaskValidation } from '../../../utils/RulesForClientValidation';
 
 export default function SubtaskForm({ _id }) {
 
@@ -42,7 +42,7 @@ export default function SubtaskForm({ _id }) {
                         autoComplete='off'
                         helperText={errors?.text?.message}
                         error={Boolean(errors.text?.message)}
-                        {...register('text', ToodooValidation)}
+                        {...register('text', SubtaskValidation)}
                     />
                     <SubmitButton status={status} text={'Добавить'} />
                 </Form>

@@ -48,14 +48,14 @@
     font-weight:bold;
 }
 .hompage__room-need-auth{
-    color:grey;
+    color:black;
     margin-top:10px;
     font-size:20px;
     font-weight:bold;
     transition:.2s;
 }
 .hompage__room-need-auth:hover{
-    color:blue
+    color:#50BBD7;
 }
 
 @media screen and (max-width: 768px) {

@@ -7,7 +7,7 @@ import Form from '../Form';
 import { useForm, Controller } from 'react-hook-form';
 import { TextField } from '@mui/material';
 import SubmitButton from '../../UiComponents/SubmitButton';
-import { ToodooValidation } from '../../../utils/RulesForClientValidation';
+import { SubtaskValidation } from '../../../utils/RulesForClientValidation';
 import { MdModeEdit } from "react-icons/md";
 
 export default function SubtaskFormEditor({ SubTaskId }) {
@@ -44,7 +44,7 @@ export default function SubtaskFormEditor({ SubTaskId }) {
 
     return (
         <>
-            <MdModeEdit className='form__modal-open' onClick={() => getCurrentSubtask()} />
+            <MdModeEdit className='form__modal-open task__btn' onClick={() => getCurrentSubtask()} />
             <Modal open={openSubtaskEditor} setOpen={setOpenSubtaskEditor}>
                 <Form title='Изменить подзадачу' submit={handleSubmit(handleSubmitSubtaskData)}>
                     <Controller
@@ -52,7 +52,7 @@ export default function SubtaskFormEditor({ SubTaskId }) {
                         control={control}
                         value={subtask?.text}
                         defaultValue={subtask?.text}
-                        rules={ToodooValidation}
+                        rules={SubtaskValidation}
                         render={({ field }) => (
                             <TextField
                                 sx={{ marginBottom: '20px' }}

@@ -22,6 +22,21 @@ export const ToodooValidation = {
     },
 }
 
+
+export const SubtaskValidation = {
+    required: 'Напишите текст',
+    maxLength: {
+        value: 70,
+        message: 'Превышено максимальное количество символов',
+    },
+    pattern: {
+        value: /^(?!\s+$).+$/,
+        message: 'Недопустимый текст',
+    },
+}
+
+
+
 export const UserSignInValidation = {
     userName: {
         required: 'Укажите Имя польвателя',
