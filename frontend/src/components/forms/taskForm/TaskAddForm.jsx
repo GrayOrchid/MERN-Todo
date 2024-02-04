@@ -39,9 +39,9 @@ export default function TaskAddForm() {
     const removeTag = (e) => {
         setTags(tags.filter((tag) => tag.id !== e))
     }
+
     const hanldeTask = async (task) => {
         const taskData = { text: task.text, roomId: room._id, tags }
-
         await dispatch(submitTask(taskData));
         await dispatch(getRoom(room.name));
 

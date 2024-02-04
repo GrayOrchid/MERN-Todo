@@ -17,7 +17,7 @@ export default function EditTaskForm({ taskId }) {
   const [openTaskEditor, setOpenTaskEditor] = useState(false)
   const { error, status, taskUpdateStatus, todo } = useSelector(state => state.todo)
   const [disabled, setDisabled] = useState(true)
-  const { register, handleSubmit, watch, formState: { errors }, reset, control } = useForm({ mode: 'onChange' })
+  const { register, handleSubmit, watch, formState: { errors }, reset, control, setValue } = useForm({ mode: 'onChange' })
   const [tags, setTags] = useState([])
   const { room } = useSelector(state => state.room)
 
@@ -25,31 +25,33 @@ export default function EditTaskForm({ taskId }) {
 
   useEffect(() => {
     tags?.length >= 5 ? setDisabled(true) : setDisabled(false)
+  }, [tags]);
+
+  useEffect(() => {
     setTags(todo?.tags)
-  }, [tags, openTaskEditor]);
-
-  const getCurrentTask = async () => {
-    await dispatch(getOne(taskId))
-    await setTags(todo?.tags)
-    if (todo) {
-      await setOpenTaskEditor(true)
-    }
-  }
-
+  }, [openTaskEditor])
 
 
   useEffect(() => {
     if (taskUpdateStatus == 'resolved') {
       setOpenTaskEditor(false)
+      setTags([])
     }
   }, [taskUpdateStatus])
 
 
+  const getCurrentTask = async () => {
+    await dispatch(getOne(taskId))
+    await setOpenTaskEditor(true)
+  }
+
+
   const addTag = (tag) => {
+
     if (tag.trim() !== '') {
       const newTag = { tag, id: Date.now() };
       setTags([...tags, newTag])
-      reset({ tag: ' ' });
+      setValue('tag', '');
     }
   }
 
